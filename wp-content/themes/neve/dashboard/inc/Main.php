@@ -39,6 +39,7 @@ class Main {
 	 */
 	private $useful_plugins = [
 		'optimole-wp',
+		'templates-patterns-collection',
 		'themeisle-companion',
 		'feedzy-rss-feeds',
 		'otter-blocks',
@@ -94,7 +95,7 @@ class Main {
 			[
 				'type'         => 'string',
 				'show_in_rest' => true,
-				'default'      => 'no',
+				'default'      => '',
 			]
 		);
 	}
@@ -158,7 +159,10 @@ class Main {
 
 		$dependencies = [ 'react', 'react-dom', 'wp-i18n', 'wp-api', 'wp-api-fetch', 'wp-components', 'wp-element', 'updates' ];
 
-		wp_enqueue_style( 'neve-dash-style', get_template_directory_uri() . '/dashboard/build/build.css', [ 'wp-components' ], NEVE_VERSION );
+		wp_register_style( 'neve-dash-style', get_template_directory_uri() . '/dashboard/build/build.css', [ 'wp-components' ], NEVE_VERSION );
+		wp_style_add_data( 'neve-dash-style', 'rtl', 'replace' );
+		wp_enqueue_style( 'neve-dash-style' );
+
 		wp_register_script( 'neve-dash-script', get_template_directory_uri() . '/dashboard/build/build.js', $dependencies, NEVE_VERSION, true );
 		wp_localize_script( 'neve-dash-script', 'neveDash', apply_filters( 'neve_dashboard_page_data', $this->get_localization() ) );
 		wp_enqueue_script( 'neve-dash-script' );
@@ -171,13 +175,14 @@ class Main {
 	 */
 	private function get_localization() {
 		$theme_name        = apply_filters( 'ti_wl_theme_name', $this->theme_args['name'] );
-		$plugin_name       = apply_filters( 'ti_wl_plugin_name', __( 'Neve Pro', 'neve' ) );
-		$plugin_name_addon = apply_filters( 'ti_wl_plugin_name', __( 'Neve Pro Addon', 'neve' ) );
+		$plugin_name       = apply_filters( 'ti_wl_plugin_name', 'Neve Pro' );
+		$plugin_name_addon = apply_filters( 'ti_wl_plugin_name', 'Neve Pro Addon' );
 		$data              = [
 			'nonce'               => wp_create_nonce( 'wp_rest' ),
 			'version'             => 'v' . NEVE_VERSION,
 			'assets'              => get_template_directory_uri() . '/dashboard/assets/',
 			'hasOldPro'           => (bool) ( defined( 'NEVE_PRO_VERSION' ) && version_compare( NEVE_PRO_VERSION, '1.1.11', '<' ) ),
+			'isRTL'               => is_rtl(),
 			'notifications'       => $this->get_notifications(),
 			'customizerShortcuts' => $this->get_customizer_shortcuts(),
 			'plugins'             => $this->get_useful_plugins(),
@@ -211,7 +216,8 @@ class Main {
 				),
 			],
 			'changelog'           => $this->cl_handler->get_changelog( get_template_directory() . '/CHANGELOG.md' ),
-			'onboarding'          => $this->get_onboarding_data(),
+			'onboarding'          => [],
+			'hasFileSystem'       => WP_Filesystem(),
 		];
 
 		if ( defined( 'NEVE_PRO_PATH' ) ) {
@@ -230,6 +236,10 @@ class Main {
 		$notifications = [];
 		$slug          = 'neve';
 		$themes_update = get_site_transient( 'update_themes' );
+
+		$plugin_folder = defined( 'NEVE_PRO_BASEFILE' ) ? basename( dirname( NEVE_PRO_BASEFILE ) ) : null;
+		$plugin_path   = $plugin_folder ? $plugin_folder . '/neve-pro-addon.php' : null;
+
 		if ( isset( $themes_update->response[ $slug ] ) ) {
 			$update                = $themes_update->response[ $slug ];
 			$notifications['neve'] = [
@@ -240,27 +250,37 @@ class Main {
 					'slug' => $slug,
 				],
 				'cta'    => __( 'Update Now', 'neve' ),
+				'type'   => ( $plugin_path && is_plugin_active( $plugin_path ) ) ? 'warning' : null,
 			];
 		}
 
-		$plugins_update = get_site_transient( 'update_plugins' );
-		$plugin_path    = 'neve-pro-addon/neve-pro-addon.php';
-		if ( isset( $plugins_update->response[ $plugin_path ] ) ) {
-			$update                          = $plugins_update->response[ $plugin_path ];
-			$notifications['neve-pro-addon'] = [
-				'text'   => sprintf(
-				// translators: s - Pro plugin name (Neve Pro)
-					__( 'New plugin update for %1$s! Please update to %2$s.', 'neve' ),
-					wp_kses_post( apply_filters( 'ti_wl_plugin_name', 'Neve Pro' ) ),
-					wp_kses_post( $update->new_version )
-				),
-				'update' => [
-					'type' => 'plugin',
-					'slug' => 'neve-pro-addon',
-					'path' => $plugin_path,
-				],
-				'cta'    => __( 'Update Now', 'neve' ),
-			];
+		if ( $plugin_path ) {
+			$plugins_update = get_site_transient( 'update_plugins' );
+			if ( is_plugin_active( $plugin_path ) && isset( $plugins_update->response[ $plugin_path ] ) ) {
+				$update                          = $plugins_update->response[ $plugin_path ];
+				$notifications['neve-pro-addon'] = [
+					'text'   => sprintf(
+					// translators: s - Pro plugin name (Neve Pro)
+						__( 'New plugin update for %1$s! Please update to %2$s.', 'neve' ),
+						wp_kses_post( apply_filters( 'ti_wl_plugin_name', 'Neve Pro' ) ),
+						wp_kses_post( $update->new_version )
+					),
+					'update' => [
+						'type' => 'plugin',
+						'slug' => 'neve-pro-addon',
+						'path' => $plugin_path,
+					],
+					'cta'    => __( 'Update Now', 'neve' ),
+					'type'   => 'warning',
+				];
+			}
+		}
+
+		if ( count( $notifications ) === 1 && is_plugin_active( $plugin_path ) ) {
+			foreach ( $notifications as $key => $notification ) {
+				/* translators: 1 - Theme Name (Neve), 2 - Plugin Name (Neve Pro) */
+				$notifications[ $key ]['text'] = sprintf( __( 'We recommend that both %1$s and %2$s are updated to the latest version to ensure optimal intercompatibility.', 'neve' ), wp_kses_post( $this->theme_args['name'] ), apply_filters( 'ti_wl_plugin_name', 'Neve Pro' ) );
+			}
 		}
 
 		return $notifications;
@@ -397,7 +417,6 @@ class Main {
 				$available[ $slug ]['path']       = $this->plugin_helper->get_plugin_path( $slug );
 				$available[ $slug ]['activate']   = $this->plugin_helper->get_plugin_action_link( $slug );
 				$available[ $slug ]['deactivate'] = $this->plugin_helper->get_plugin_action_link( $slug, 'deactivate' );
-
 			}
 
 			return $available;
@@ -426,12 +445,5 @@ class Main {
 		set_transient( $this->plugins_cache_key, wp_json_encode( $data ) );
 
 		return $data;
-	}
-
-	/**
-	 * Get the onboarding data.
-	 */
-	private function get_onboarding_data() {
-		return array();
 	}
 }

@@ -52,7 +52,7 @@ class BackgroundComponent extends Component {
         <Button
           key={index}
           isPrimary={self.state.type === type}
-          isDefault={self.state.type !== type}
+          isSecondary={self.state.type !== type}
           onClick={(e) => {
             self.updateSetting({ type: type })
           }}
@@ -119,7 +119,7 @@ class BackgroundComponent extends Component {
                     }}
                     allowedTypes={['image']}
                     render={({ open }) => (
-                      <Button isDefault onClick={open}>
+                      <Button isSecondary onClick={open}>
                         {__('Add Image', 'neve')}
                       </Button>
                     )}
@@ -132,7 +132,7 @@ class BackgroundComponent extends Component {
                     isLink
                     onClick={() => {
                       this.updateSetting(
-                        { imageUrl: '', overlayColorValue: '' })
+                        { imageUrl: '' })
                     }}
                   >
                     <Dashicon icon='no' />
@@ -187,7 +187,6 @@ class BackgroundComponent extends Component {
   }
 
   componentDidMount() {
-    this.updateSetting(this.state)
     const { control } = this.props
 
     document.addEventListener('neve-changed-customizer-value', (e) => {

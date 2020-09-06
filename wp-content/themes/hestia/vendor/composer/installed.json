@@ -1,17 +1,17 @@
 [
     {
         "name": "codeinwp/themeisle-sdk",
-        "version": "3.2.8",
-        "version_normalized": "3.2.8.0",
+        "version": "3.2.15",
+        "version_normalized": "3.2.15.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Codeinwp/themeisle-sdk.git",
-            "reference": "ce152edef1634d7c3ce75ed292efcc7a5f73806e"
+            "reference": "95b7447a5f4faba410c281c4bf278fbd740fed71"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Codeinwp/themeisle-sdk/zipball/ce152edef1634d7c3ce75ed292efcc7a5f73806e",
-            "reference": "ce152edef1634d7c3ce75ed292efcc7a5f73806e",
+            "url": "https://api.github.com/repos/Codeinwp/themeisle-sdk/zipball/95b7447a5f4faba410c281c4bf278fbd740fed71",
+            "reference": "95b7447a5f4faba410c281c4bf278fbd740fed71",
             "shasum": ""
         },
         "require-dev": {
@@ -19,7 +19,7 @@
             "squizlabs/php_codesniffer": "^3.1",
             "wp-coding-standards/wpcs": "^1.0.0"
         },
-        "time": "2020-03-24T16:54:54+00:00",
+        "time": "2020-07-23T15:02:10+00:00",
         "type": "library",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
@@ -78,17 +78,17 @@
     },
     {
         "name": "codeinwp/ti-onboarding",
-        "version": "1.8.2",
-        "version_normalized": "1.8.2.0",
+        "version": "1.8.3",
+        "version_normalized": "1.8.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Codeinwp/ti-onboarding.git",
-            "reference": "03d872013eeef2a7e6b088f4af5a36f5d61b56d8"
+            "reference": "2791520635fdff221da1c794096566ee20966872"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Codeinwp/ti-onboarding/zipball/03d872013eeef2a7e6b088f4af5a36f5d61b56d8",
-            "reference": "03d872013eeef2a7e6b088f4af5a36f5d61b56d8",
+            "url": "https://api.github.com/repos/Codeinwp/ti-onboarding/zipball/2791520635fdff221da1c794096566ee20966872",
+            "reference": "2791520635fdff221da1c794096566ee20966872",
             "shasum": ""
         },
         "require-dev": {
@@ -96,7 +96,7 @@
             "squizlabs/php_codesniffer": "^3.1",
             "wp-coding-standards/wpcs": "^1.0.0 || ^2.0.0"
         },
-        "time": "2020-02-03T11:53:11+00:00",
+        "time": "2020-06-25T12:55:32+00:00",
         "type": "library",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
@@ -115,17 +115,17 @@
     },
     {
         "name": "codeinwp/ti-white-label",
-        "version": "1.0.6",
-        "version_normalized": "1.0.6.0",
+        "version": "1.0.7",
+        "version_normalized": "1.0.7.0",
         "source": {
             "type": "git",
             "url": "git@github.com:Codeinwp/ti-white-label.git",
-            "reference": "6f3259a65b26dfad055a707456e84e79dcc527d5"
+            "reference": "52d1b0418201b81fda0066d080bae450947b337d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Codeinwp/ti-white-label/zipball/6f3259a65b26dfad055a707456e84e79dcc527d5",
-            "reference": "6f3259a65b26dfad055a707456e84e79dcc527d5",
+            "url": "https://api.github.com/repos/Codeinwp/ti-white-label/zipball/52d1b0418201b81fda0066d080bae450947b337d",
+            "reference": "52d1b0418201b81fda0066d080bae450947b337d",
             "shasum": ""
         },
         "require-dev": {
@@ -134,7 +134,7 @@
             "squizlabs/php_codesniffer": "^3.1",
             "wp-coding-standards/wpcs": "*"
         },
-        "time": "2020-03-23T08:57:20+00:00",
+        "time": "2020-05-19T20:57:10+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -155,7 +155,7 @@
         ],
         "authors": [
             {
-                "name": "ThemeIsle",
+                "name": "Themeisle",
                 "email": "friends@themeisle.com",
                 "homepage": "https://themeisle.com"
             }
@@ -164,7 +164,7 @@
         "homepage": "https://github.com/Codeinwp/ti-white-label",
         "support": {
             "issues": "https://github.com/Codeinwp/ti-white-label/issues",
-            "source": "https://github.com/Codeinwp/ti-white-label/tree/v1.0.6"
+            "source": "https://github.com/Codeinwp/ti-white-label/tree/v1.0.7"
         }
     }
 ]

@@ -18,6 +18,34 @@ Hestia is distributed under the terms of the GNU GPLv2 or later
 
 == Changelog ==
 
+##### [Version 3.0.4](https://github.com/Codeinwp/hestia-pro/compare/v3.0.3...v3.0.4) (2020-08-03)
+
+- [Fix] Compatibility with WP 5.5
+
+
+
+
+##### [Version 3.0.3](https://github.com/Codeinwp/hestia-pro/compare/v3.0.2...v3.0.3) (2020-07-09)
+
+- Removed onboarding from the free version
+
+
+
+
+##### [Version 3.0.2](https://github.com/Codeinwp/hestia-pro/compare/v3.0.1...v3.0.2) (2020-06-25)
+
+- [Fix] Compatibility issues with PHP 7.4
+- [Fix] Layout of the attribute archive page
+- [Fix] Position of show/hide password icon on the My Account page
+- [Fix][Pro] Allow iframe code in the Custom Layouts
+- [Fix][Pro] Translatable Custom Layouts
+- [Fix][Pro] Remove unused sidebar control meta box on single portfolio pages
+- [Fix][Pro] Empty team member widget appearing on mobile
+- [Fix][Pro] Seamless add to cart mechanism for variable products
+
+
+
+
 ##### [Version 3.0.1](https://github.com/Codeinwp/hestia-pro/compare/v3.0.0...v3.0.1) (2020-05-11)
 
 [Fix] Missing Font Awesome icons

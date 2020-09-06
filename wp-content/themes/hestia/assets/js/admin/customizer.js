@@ -391,7 +391,7 @@
             );
         },
         'focusTab': function () {
-            $( '.customize-partial-edit-shortcut' ).live(
+            $( '.customize-partial-edit-shortcut' ).bind(
                 'DOMNodeInserted', function () {
                     $( this ).on(
                         'click', function() {

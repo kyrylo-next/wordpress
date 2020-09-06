@@ -81,7 +81,7 @@ class Woocommerce {
 			.woocommerce a.added_to_cart,
 			.woocommerce .checkout_coupon button.button,
 			.woocommerce #review_form #respond input#submit,
-			.woocommerce .price_slider_amount button.button:not(.nv-sidebar-toggle):not(.nv-close-cart-sidebar),
+			.woocommerce .price_slider_amount button.button,
 			.woocommerce .woocommerce-mini-cart__buttons.buttons a.button.wc-forward:not(.checkout),
 			.woocommerce .button.button-secondary.more-details,
 			.woocommerce-checkout #neve-checkout-coupon .woocommerce-form-coupon .form-row-last button.button',
@@ -157,6 +157,10 @@ class Woocommerce {
 
 		add_filter( 'woocommerce_product_description_heading', '__return_false' );
 		add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
+
+		// Add breadcrumbs and results count
+		add_action( 'neve_bc_count', 'woocommerce_breadcrumb' );
+		add_action( 'neve_bc_count', 'woocommerce_result_count' );
 
 		$this->edit_woocommerce_header();
 		$this->move_checkout_coupon();
@@ -250,24 +254,6 @@ class Woocommerce {
 	}
 
 	/**
-	 * Remove last breadcrumb on single product.
-	 *
-	 * @param array $crumbs breadcrumbs.
-	 * @param array $args breadcrumbs args.
-	 *
-	 * @return array
-	 */
-	public function remove_last_breadcrumb( $crumbs, $args ) {
-		if ( ! is_product() ) {
-			return $crumbs;
-		}
-		$length               = sizeof( $crumbs ) - 1;
-		$crumbs[ $length ][0] = '';
-
-		return $crumbs;
-	}
-
-	/**
 	 * Change functions hooked into woocommerce header.
 	 */
 	private function edit_woocommerce_header() {
@@ -281,7 +267,6 @@ class Woocommerce {
 		add_action( 'neve_before_shop_loop_content', array( $this, 'add_header_bits' ), 0 );
 
 		// Change breadcrumbs.
-		add_filter( 'woocommerce_get_breadcrumb', array( $this, 'remove_last_breadcrumb' ), 10, 2 );
 		add_filter( 'woocommerce_breadcrumb_defaults', array( $this, 'change_breadcrumbs_delimiter' ) );
 	}
 
@@ -294,8 +279,7 @@ class Woocommerce {
 		}
 
 		echo '<div class="nv-bc-count-wrap">';
-		woocommerce_breadcrumb();
-		woocommerce_result_count();
+		do_action( 'neve_bc_count' );
 		echo '</div>';
 
 		if ( is_product() ) {
