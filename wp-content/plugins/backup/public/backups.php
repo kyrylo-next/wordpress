@@ -101,7 +101,7 @@ $contentClassName = getBackupPageContentClassName('backups');
             <span class="sg-backup-buttons-text sg-backup-buttons-content"><?php _backupGuardT('Delete')?></span>
         </a>
         <div class="clearfix"></div><br/>
-        <table class="table table-striped paginated sg-backup-table">
+        <table class="table table-striped paginated sg-backup-table sg-backups">
             <thead>
             <tr>
                 <th><input type="checkbox" id="sg-checkbox-select-all" autocomplete="off"></th>
@@ -193,7 +193,7 @@ $contentClassName = getBackupPageContentClassName('backups');
             </tbody>
         </table>
 
-        <div class="text-right">
+        <div class="text-right sg-backups">
             <ul class="pagination"></ul>
         </div>
     </fieldset>

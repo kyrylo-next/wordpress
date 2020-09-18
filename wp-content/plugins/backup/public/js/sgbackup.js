@@ -16,7 +16,7 @@ jQuery(document).on('change', '.btn-file :file', function() {
 });
 
 jQuery(document).ready( function() {
-	sgBackup.initTablePagination();
+	sgBackup.initTablePagination('sg-backups');
 	sgBackup.initActiveAction();
 	sgBackup.initBackupDeletion();
 	sgBackup.toggleMultiDeleteButton();

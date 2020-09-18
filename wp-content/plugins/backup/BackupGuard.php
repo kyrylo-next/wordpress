@@ -116,6 +116,9 @@ function getBackupPageContentClassName($pageName = '')
 
 function includeAllPages()
 {
+    if (!backupGuardValidateLicense()) {
+        return false;
+    }
     backup_guard_backups_page();
     backup_guard_cloud_page();
     backup_guard_system_info_page();
@@ -126,6 +129,8 @@ function includeAllPages()
     backup_guard_settings_page();
 
     require_once(plugin_dir_path(__FILE__).'public/pagesContent.php');
+
+    return true;
 }
 
 function backup_guard_system_info_page()

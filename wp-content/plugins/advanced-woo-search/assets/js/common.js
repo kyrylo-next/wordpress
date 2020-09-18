@@ -330,30 +330,31 @@ AwsHooks.filters = AwsHooks.filters || {};
 
                 if ( offset && bodyOffset  ) {
 
-                    var width = self.outerWidth();
-                    var top = 0;
-                    var left = 0;
+                    var styles = {
+                        width: self.outerWidth(),
+                        top : 0,
+                        left: 0
+                    };
 
                     if ( bodyPosition === 'relative' || bodyPosition === 'absolute' || bodyPosition === 'fixed' ) {
-                        top = offset.top + $(self).innerHeight() - bodyOffset.top;
-                        left = offset.left - bodyOffset.left;
+                        styles.top = offset.top + $(self).innerHeight() - bodyOffset.top;
+                        styles.left = offset.left - bodyOffset.left;
                     } else {
-                        top = offset.top + $(self).innerHeight();
-                        left = offset.left;
+                        styles.top = offset.top + $(self).innerHeight();
+                        styles.left = offset.left;
                     }
 
                     if ( bodyHeight - offset.top < 500 ) {
                         resultsHeight = methods.getResultsBlockHeight();
                         if ( ( bodyHeight - offset.top < resultsHeight ) && ( offset.top >= resultsHeight ) ) {
-                            top = top - resultsHeight - $(self).innerHeight();
+                            styles.top = styles.top - resultsHeight - $(self).innerHeight();
                         }
                     }
 
-                    $resultsBlock.css({
-                        width : width,
-                        top : top,
-                        left: left
-                    });
+                    // @since 2.10
+                    styles = AwsHooks.apply_filters( 'aws_results_layout', styles, { resultsBlock: $resultsBlock, form: self } );
+
+                    $resultsBlock.css( styles );
 
                 }
 

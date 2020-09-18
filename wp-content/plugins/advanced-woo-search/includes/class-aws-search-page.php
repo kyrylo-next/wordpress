@@ -108,7 +108,7 @@ if ( ! class_exists( 'AWS_Search_Page' ) ) :
                 $post_array = (array) $post_array;
                 $post_data = $post_array['post_data'];
 
-                $post->ID = $post_data->ID;
+                $post->ID = ( isset( $post_array['parent_id'] ) && $post_array['parent_id'] ) ? $post_array['parent_id'] : $post_data->ID;
                 $post->site_id = get_current_blog_id();
 
                 if ( ! empty( $post_data->site_id ) ) {
@@ -272,6 +272,8 @@ if ( ! class_exists( 'AWS_Search_Page' ) ) :
                 $query->is_archive           = true;
 
             }
+
+            $query->set( 'aws_query', true );
 
         }
 

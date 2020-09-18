@@ -518,6 +518,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                     }
 
                     $post_id = method_exists( $product, 'get_id' ) ? $product->get_id() : $post_item;
+                    $parent_id = $product->is_type( 'variation' ) && method_exists( $product, 'get_parent_id' ) ? $product->get_parent_id() : $post_id;
 
                     /**
                      * Filter additional product data
@@ -644,6 +645,7 @@ if ( ! class_exists( 'AWS_Search' ) ) :
 
                     $new_result = array(
                         'id'           => $post_id,
+                        'parent_id'    => $parent_id,
                         'title'        => $title,
                         'excerpt'      => $excerpt,
                         'link'         => get_permalink( $post_id ),

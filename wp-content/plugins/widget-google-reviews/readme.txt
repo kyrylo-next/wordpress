@@ -1,14 +1,14 @@
-=== Google Reviews Widget ===
+=== Widget for Google Reviews ===
 Contributors: richplugins
 Donate link: https://richplugins.com/business-reviews-bundle-wordpress-plugin
 Tags: Google, reviews, widget, testimonials, Google Places reviews
 Requires at least: 2.8
 Tested up to: 5.5
-Stable tag: 1.8.8
+Stable tag: 1.8.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Google reviews widget and shortcode! Shows Google reviews on your WordPress website to increase user confidence and SEO.
+Widget and shortcode for Google reviews! Shows Google reviews on your WordPress website to increase user confidence and SEO.
 
 == Description ==
 
@@ -78,6 +78,10 @@ Why limit your reviews to just Google Reviews? Check out our other free reviews 
 4. Google Reviews sidebar widget
 
 == Changelog ==
+
+= 1.8.9 =
+* Improve: Added Swedish language
+* Bugfix: Google default avatar quality is 128px
 
 = 1.8.8 =
 * Update to WordPress 5.5

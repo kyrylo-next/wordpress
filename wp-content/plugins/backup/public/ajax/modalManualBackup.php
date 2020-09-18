@@ -28,30 +28,30 @@
 					</div>
 					<div class="col-md-12">
 						<div class="radio">
-							<label for="fullbackup-radio">
-								<input type="radio" name="backupType" id="fullbackup-radio" value="1" checked="checked">
+							<label for="full-backup-radio">
+								<input type="radio" name="backupType" id="full-backup-radio" value="1" checked="checked">
 								<?php _backupGuardT('Full backup'); ?>
 							</label>
 						</div>
 						<div class="radio">
-							<label for="custombackup-radio">
-								<input type="radio" name="backupType" id="custombackup-radio" value="2">
+							<label for="custom-backup-radio">
+								<input type="radio" name="backupType" id="custom-backup-radio" value="2">
 								<?php _backupGuardT('Custom backup'); ?>
 							</label>
 						</div>
 						<div class="col-md-12 sg-custom-backup">
 							<?php backupGuardGetBackupTablesHTML(); ?>
 							<div class="checkbox sg-no-padding-top">
-								<label for="custombackupfiles-chbx">
-									<input type="checkbox" class="sg-custom-option" name="backupFiles" id="custombackupfiles-chbx">
+								<label for="custom-backupfiles-chbx">
+									<input type="checkbox" class="sg-custom-option" name="backupFiles" id="custom-backupfiles-chbx">
 									<span class="sg-checkbox-label-text"><?php _backupGuardT('Backup files'); ?></span>
 								</label>
 								<!--Files-->
 								<div class="col-md-12 sg-checkbox sg-custom-backup-files">
 									<?php foreach ($directories as $directory): ?>
 										<div class="checkbox">
-											<label for="<?php echo 'sg'.$directory?>">
-												<input type="checkbox" name="directory[]" id="<?php echo 'sg'.$directory;?>" value="<?php echo $directory;?>">
+											<label for="<?php echo 'sgbg'.$directory?>">
+												<input type="checkbox" name="directory[]" id="<?php echo 'sgbg'.$directory;?>" value="<?php echo $directory;?>">
 												<span class="sg-checkbox-label-text"><?php echo basename($directory);?></span>
 											</label>
 										</div>
@@ -63,8 +63,8 @@
 						<?php if(SGBoot::isFeatureAvailable('STORAGE')): ?>
 							<!--Cloud-->
 							<div class="checkbox sg-no-padding-top">
-								<label for="custombackupcloud-chbx">
-									<input type="checkbox" name="backupCloud" id="custombackupcloud-chbx">
+								<label for="custom-backupcloud-chbx">
+									<input type="checkbox" name="backupCloud" id="custom-backupcloud-chbx">
 									<span class="sg-checkbox-label-text"><?php _backupGuardT('Upload to cloud'); ?></span>
 								</label>
 								<!--Storages-->
@@ -119,8 +119,8 @@
 						<!-- Background mode -->
 						<?php if(SGBoot::isFeatureAvailable('BACKGROUND_MODE')): ?>
 							<div class="checkbox">
-								<label for="background-chbx">
-									<input type="checkbox" name="backgroundMode" id="background-chbx">
+								<label for="sg-background-chbx">
+									<input type="checkbox" name="backgroundMode" id="sg-background-chbx">
 									<span class="sg-checkbox-label-text"><?php _backupGuardT('Background mode'); ?></span>
 								</label>
 							</div>

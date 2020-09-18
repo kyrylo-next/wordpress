@@ -129,6 +129,10 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
                     add_action( 'wp_head', array( $this, 'woodmart_head_action' ) );
                 }
 
+                if ( 'Storefront' === $this->current_theme ) {
+                    add_action( 'wp_footer', array( $this, 'storefront_footer_action' ) );
+                }
+
                 // Elementor pro
                 if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
                     add_action( 'wp_footer', array( $this, 'elementor_pro_popup' ) );
@@ -704,6 +708,43 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
 
              </style>
 
+        <?php }
+
+        /*
+         * Storefront theme search form layout
+         */
+        public function storefront_footer_action() { ?>
+            <script>
+                window.addEventListener('load', function() {
+                    function aws_results_layout( styles, options  ) {
+                        if ( typeof jQuery !== 'undefined' ) {
+                            var $storefrontHandheld = options.form.closest('.storefront-handheld-footer-bar');
+                            if ( $storefrontHandheld.length ) {
+                                if ( ! $storefrontHandheld.find('.aws-search-result').length ) {
+                                    $storefrontHandheld.append( options.resultsBlock );
+                                }
+                                styles.top = 'auto';
+                                styles.bottom = 130;
+                            }
+                        }
+                        return styles;
+                    }
+                    if ( typeof AwsHooks === 'object' && typeof AwsHooks.add_filter === 'function' ) {
+                        AwsHooks.add_filter( 'aws_results_layout', aws_results_layout );
+                    }
+                }, false);
+            </script>
+            <style>
+                .storefront-handheld-footer-bar .aws-search-result ul li {
+                    float: none !important;
+                    display: block !important;
+                    text-align: left !important;
+                }
+                .storefront-handheld-footer-bar .aws-search-result ul li a {
+                    text-indent: 0 !important;
+                    text-decoration: none;
+                }
+            </style>
         <?php }
 
         /*

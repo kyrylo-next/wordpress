@@ -626,8 +626,8 @@ function backupGuardGetBackupTablesHTML($defaultChecked = false){
 	?>
 
 	<div class="checkbox">
-		<label for="custombackupdb-chbx">
-			<input type="checkbox" class="sg-custom-option" name="backupDatabase" id="custombackupdb-chbx"  <?php echo $defaultChecked?'checked':'' ?>>
+		<label for="custom-backupdb-chbx">
+			<input type="checkbox" class="sg-custom-option" name="backupDatabase" id="custom-backupdb-chbx"  <?php echo $defaultChecked?'checked':'' ?>>
             <span class="sg-checkbox-label-text"><?php _backupGuardT('Backup database'); ?></span>
 		</label>
 		<div class="col-md-12 sg-checkbox sg-backup-db-options">

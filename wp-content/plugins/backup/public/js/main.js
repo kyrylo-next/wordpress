@@ -404,21 +404,22 @@ sgBackup.showReviewModal = function(){
 	}
 };
 
-sgBackup.initTablePagination = function(){
+sgBackup.initTablePagination = function(pageName){
+	var callBack = pageName+'';
 	jQuery.fn.sgTablePagination = function(opts){
 		var jQuerythis = this,
 			defaults = {
 				perPage: 7,
 				showPrevNext: false,
 				hidePageNumbers: false,
-				pagerSelector: 'pagination'
+				pagerSelector: '.'+pageName+' .pagination'
 			},
 			settings = jQuery.extend(defaults, opts);
 
 		var listElement = jQuerythis.children('tbody');
 		var perPage = settings.perPage;
 		var children = listElement.children();
-		var pager = jQuery('.pager');
+		var pager = jQuery('.'+pageName+'.pager');
 
 		if (typeof settings.childSelector!="undefined") {
 			children = listElement.find(settings.childSelector);
@@ -445,7 +446,7 @@ sgBackup.initTablePagination = function(){
 
 		if(curr<=1){
 			jQuery(settings.pagerSelector).parent('div').hide();
-			jQuery('.page_link').hide();
+			jQuery('.'+pageName+'.page_link').hide();
 		}
 
 		if (settings.showPrevNext){
@@ -512,7 +513,7 @@ sgBackup.initTablePagination = function(){
 
 		}
 	};
-	jQuery('table.paginated').sgTablePagination({pagerSelector:'.pagination',showPrevNext:true,hidePageNumbers:false,perPage:7});
+	jQuery('table.paginated.'+pageName).sgTablePagination({pagerSelector:'.'+pageName+' .pagination',showPrevNext:true,hidePageNumbers:false,perPage:7});
 };
 
 sgBackup.logout = function()
