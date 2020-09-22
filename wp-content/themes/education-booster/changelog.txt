@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.2.3 =
+* Theme info updated.
+
 = 1.2.2 =
 * Breadcrumb file updated to fix Google search console warnings.
 * One click demo import plugin recommended.
