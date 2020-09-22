@@ -589,8 +589,10 @@ if ( ! class_exists( 'AWS_Search' ) ) :
                          */
                         $image_size = apply_filters( 'aws_image_size', $image_size );
 
-                        $image_attributes = wp_get_attachment_image_src( $image_id, $image_size );
-                        $image = $image_attributes[0];
+                        if ( $image_id ) {
+                            $image_attributes = wp_get_attachment_image_src( $image_id, $image_size );
+                            $image = $image_attributes ? $image_attributes[0] : '';
+                        }
 
                     }
 

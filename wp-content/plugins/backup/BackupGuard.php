@@ -435,7 +435,8 @@ function backup_guard_register_ajax_callbacks()
 		add_action('wp_ajax_backup_guard_checkBackupCreation', 'backup_guard_check_backup_creation');
 		add_action('wp_ajax_backup_guard_checkRestoreCreation', 'backup_guard_check_restore_creation');
         add_action('wp_ajax_backup_guard_cloudDropbox', 'backup_guard_cloud_dropbox');
-	
+        add_action('wp_ajax_backup_guard_send_usage_status', 'backup_guard_send_usage_status');
+
         $pluginCapabilities = backupGuardGetCapabilities();
         if ($pluginCapabilities != BACKUP_GUARD_CAPABILITIES_FREE) {
             require_once dirname(__FILE__).'/BackupGuardPro.php';
@@ -604,6 +605,15 @@ function backup_guard_cloud_dropbox()
 	if (current_user_can('activate_plugins')) {
 		check_ajax_referer('backupGuardAjaxNonce', 'token');
 		require_once(SG_PUBLIC_AJAX_PATH . 'cloudDropbox.php');
+	}
+}
+
+function backup_guard_send_usage_status()
+{
+
+	if (current_user_can('activate_plugins')) {
+		check_ajax_referer('backupGuardAjaxNonce', 'token');
+		require_once(SG_PUBLIC_AJAX_PATH . 'sendUsageStatus.php');
 	}
 }
 
@@ -779,6 +789,9 @@ function sgBackupAdminInit() {
 			'filterUpdateChecks'
 		));
 	}
+
+	require_once(SG_LIB_PATH.'SGStatsRequests.php');
+	SGStatsRequests::initialSync();
 }
 
 add_action('admin_init', 'sgBackupAdminInit');

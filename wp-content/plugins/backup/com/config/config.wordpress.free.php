@@ -38,5 +38,5 @@ define('SG_STORAGE_DROPBOX_REDIRECT_URI', 'https://backup-guard.com/dropbox/');
 define('SG_PRODUCT_IDENTIFIER', 'backup-guard-wp-free');
 
 //BackupGuard Support URL
-define('SG_BACKUP_SUPPORT_URL', 'https://backup-guard.com/products/backup-wordpress/support-free');
+define('SG_BACKUP_SUPPORT_URL', 'https://help.backup-guard.com/en/');
 define('BG_UPGRADE_URL', 'https://backup-guard.com/products/backup-wordpress#pricing');

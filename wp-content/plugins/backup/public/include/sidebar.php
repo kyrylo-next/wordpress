@@ -35,7 +35,7 @@
         <div class="title">
             <span class="sg-action-menu-arrow"></span>
         </div>
-    <a class="sg-site-url" target="_blank" href="<?php echo SG_BACKUP_SITE_URL;?>">
+    </a>
 	<nav class="sidebar dark sg-backup-sidebar-nav">
 		<ul>
 			<li class="<?php echo strpos($page,'backups')?'active':''?>">

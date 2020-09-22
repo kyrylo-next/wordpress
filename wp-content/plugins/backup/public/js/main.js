@@ -73,6 +73,28 @@ sgBackup.init = function(){
 	sgBackup.initModals();
 	sgBackup.downloadButton();
 	sgBackup.navMenu();
+	sgBackup.sendUsageDataStatus();
+};
+
+sgBackup.sendUsageDataStatus = function ()
+{
+    var checkbox = jQuery('.backup-send-usage-data-status');
+
+    if (!checkbox.length) {
+        return false;
+    }
+
+    checkbox.bind('switchChange.bootstrapSwitch', function () {
+		var currentStatus = jQuery(this).is(':checked');
+		var action = 'send_usage_status';
+		jQuery(this).prop('disabled', true);
+        var ajaxHandler = new sgRequestHandler(action, {currentStatus: currentStatus, token: BG_BACKUP_STRINGS.nonce});
+        ajaxHandler.callback = function(data, error) {
+            jQuery(this).prop('disabled', false);
+		}
+
+        ajaxHandler.run();
+    });
 };
 
 sgBackup.navMenu = function ()
@@ -83,12 +105,16 @@ sgBackup.navMenu = function ()
 		return false;
 	}
 
-    navMenu.bind('click', function (event) {
+    navMenu.unbind('click').bind('click', function (event) {
         event.preventDefault();
         sgBackup.init();
         jQuery('.sg-backup-page-content').addClass('sg-visibility-hidden');
         jQuery('.sg-backup-sidebar-nav li').removeClass('active');
+        var currentUrl = jQuery(this).attr('href');
 
+        if (currentUrl.indexOf('wordpress.org') != -1) {
+        	window.open(currentUrl);
+        }
 		var currentKey = jQuery(this).data('page-key');
 		var currentPageContent = jQuery('#sg-backup-page-content-'+currentKey);
 

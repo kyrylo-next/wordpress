@@ -61,8 +61,7 @@ jQuery(document).ready( function() {
 		}
 	});
 
-
-	jQuery('.bg-verify-user-info-cancel').click(function(e) {
+	var surveyClose = function(e) {
 		e.preventDefault();
 
 		jQuery('.bg-verify-user-info-container').slideUp();
@@ -70,7 +69,12 @@ jQuery(document).ready( function() {
 
 		var ajaxHandler = new sgRequestHandler('setUserInfoVerificationPopupState', {token: BG_BACKUP_STRINGS.nonce});
 		ajaxHandler.run();
-	});
+	};
+
+	jQuery('.bg-verify-user-info-overlay').bind('click', surveyClose);
+
+
+	jQuery('.bg-verify-user-info-cancel').click(surveyClose);
 
 	jQuery('#bg-verify-user-prioraty').on('change', function () {
 		if (jQuery(this).val() == "other") {
@@ -123,12 +127,14 @@ jQuery(document).ready( function() {
 		if(sendData) {
 			jQuery('.bg-verify-user-info-container').slideUp();
 			jQuery('.bg-verify-user-info-overlay').hide();
+			var currentStatus = jQuery('.backup-send-usage-data-status').is(':checked');
 
 			var ajaxHandler = new sgRequestHandler('storeSubscriberInfo', {
 				email: email,
 				fname: fname,
 				lname: lname,
 				priority: priority,
+				currentStatus: currentStatus,
 				token: BG_BACKUP_STRINGS.nonce
 			});
 
@@ -138,8 +144,8 @@ jQuery(document).ready( function() {
 });
 
 sgBackup.isValidEmailAddress = function(emailAddress) {
-    var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,10}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
-    return pattern.test(emailAddress);
+	var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,10}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+	return pattern.test(emailAddress);
 };
 
 sgBackup.getSelectedBackupsNumber = function() {
@@ -150,23 +156,23 @@ sgBackup.toggleMultiDeleteButton = function() {
 	var numberOfChoosenBackups = sgBackup.getSelectedBackupsNumber();
 	var target = jQuery('#sg-delete-multi-backups');
 	if (numberOfChoosenBackups > 0) {
-        target.removeAttr('disabled');
+		target.removeAttr('disabled');
 	}
 	else {
-        target.attr('disabled','disabled');
+		target.attr('disabled','disabled');
 	}
 };
 
 sgBackup.closeFreeBaner = function() {
 	jQuery('.sg-close-free-banner').bind('click', function () {
-        var ajaxHandler = new sgRequestHandler('closeFreeBanner', {
-            token: BG_BACKUP_STRINGS.nonce
-        });
-        ajaxHandler.callback = function(response, error) {
-        	jQuery('#sg-banner').remove();
+		var ajaxHandler = new sgRequestHandler('closeFreeBanner', {
+			token: BG_BACKUP_STRINGS.nonce
+		});
+		ajaxHandler.callback = function(response, error) {
+			jQuery('#sg-banner').remove();
 		};
-        ajaxHandler.run();
-    });
+		ajaxHandler.run();
+	});
 };
 
 sgBackup.deleteMultiBackups = function(backupNames){
@@ -403,57 +409,57 @@ sgBackup.toggleDownloadFromCloudPage = function(){
 };
 
 sgBackup.downloadFromCloud = function (path, name, storage, size) {
-    sgBackup.showAjaxSpinner('.modal-dialog');
-    var error = [];
-    if (!path) {
-        error.push(BG_BACKUP_STRINGS.invalidDownloadFile);
-    }
+	sgBackup.showAjaxSpinner('.modal-dialog');
+	var error = [];
+	if (!path) {
+		error.push(BG_BACKUP_STRINGS.invalidDownloadFile);
+	}
 
-    jQuery('.alert').remove();
+	jQuery('.alert').remove();
 
-    if (error.length) {
-        sgBackup.hideAjaxSpinner();
-        var sgAlert = sgBackup.alertGenerator(error, 'alert-danger');
-        jQuery('#sg-modal .modal-header').prepend(sgAlert);
-        return false;
-    }
+	if (error.length) {
+		sgBackup.hideAjaxSpinner();
+		var sgAlert = sgBackup.alertGenerator(error, 'alert-danger');
+		jQuery('#sg-modal .modal-header').prepend(sgAlert);
+		return false;
+	}
 
-    var downloadFromCloudHandler = new sgRequestHandler('downloadFromCloud', {
-        path: path,
-        storage: storage,
-        size: size,
-	    token: BG_BACKUP_STRINGS.nonce
-    });
+	var downloadFromCloudHandler = new sgRequestHandler('downloadFromCloud', {
+		path: path,
+		storage: storage,
+		size: size,
+		token: BG_BACKUP_STRINGS.nonce
+	});
 
-    jQuery('#switch-modal-import-pages-back').hide();
-    jQuery('#uploadSgbpFile').attr('disabled', 'disabled');
+	jQuery('#switch-modal-import-pages-back').hide();
+	jQuery('#uploadSgbpFile').attr('disabled', 'disabled');
 
-    downloadFromCloudHandler.callback = function (response, error){
-        sgBackup.hideAjaxSpinner();
-        jQuery('.alert').remove();
+	downloadFromCloudHandler.callback = function (response, error){
+		sgBackup.hideAjaxSpinner();
+		jQuery('.alert').remove();
 
-        clearTimeout(SG_DOWNLOAD_PROGRESS);
+		clearTimeout(SG_DOWNLOAD_PROGRESS);
 
-        if (typeof response.success !== 'undefined') {
-            location.reload();
-        }
-        else {
-            jQuery('#uploadSgbpFile').html(BG_BACKUP_STRINGS.import);
+		if (typeof response.success !== 'undefined') {
+			location.reload();
+		}
+		else {
+			jQuery('#uploadSgbpFile').html(BG_BACKUP_STRINGS.import);
 
-            var sgAlert = sgBackup.alertGenerator(response.error, 'alert-danger');
+			var sgAlert = sgBackup.alertGenerator(response.error, 'alert-danger');
 
-            jQuery('#uploadSgbpFile').attr('disabled', false);
-            jQuery('#switch-modal-import-pages-back').toggle();
-            jQuery('#sg-modal .modal-header').prepend(sgAlert);
-            SG_ACTIVE_DOWNLOAD_AJAX = false;
+			jQuery('#uploadSgbpFile').attr('disabled', false);
+			jQuery('#switch-modal-import-pages-back').toggle();
+			jQuery('#sg-modal .modal-header').prepend(sgAlert);
+			SG_ACTIVE_DOWNLOAD_AJAX = false;
 
-            return false;
-        }
-    };
+			return false;
+		}
+	};
 
-    SG_ACTIVE_DOWNLOAD_AJAX = true;
-    downloadFromCloudHandler.run();
-    sgBackup.fileDownloadProgress(name, size);
+	SG_ACTIVE_DOWNLOAD_AJAX = true;
+	downloadFromCloudHandler.run();
+	sgBackup.fileDownloadProgress(name, size);
 };
 
 sgBackup.downloadFromPC =  function(){
@@ -503,18 +509,18 @@ sgBackup.downloadFromPC =  function(){
 };
 
 sgBackup.fileDownloadProgress = function(file, size){
-    var getFileDownloadProgress = new sgRequestHandler('getFileDownloadProgress', {file: file, size: size, token: BG_BACKUP_STRINGS.nonce});
+	var getFileDownloadProgress = new sgRequestHandler('getFileDownloadProgress', {file: file, size: size, token: BG_BACKUP_STRINGS.nonce});
 
-    getFileDownloadProgress.callback = function(response){
-        if (typeof response.progress !== 'undefined') {
-            jQuery('#uploadSgbpFile').html('Importing ('+ Math.round(response.progress)+'%)');
-            SG_DOWNLOAD_PROGRESS = setTimeout(function () {
-                getFileDownloadProgress.run();
-            }, SG_AJAX_REQUEST_FREQUENCY);
-        }
-    };
+	getFileDownloadProgress.callback = function(response){
+		if (typeof response.progress !== 'undefined') {
+			jQuery('#uploadSgbpFile').html('Importing ('+ Math.round(response.progress)+'%)');
+			SG_DOWNLOAD_PROGRESS = setTimeout(function () {
+				getFileDownloadProgress.run();
+			}, SG_AJAX_REQUEST_FREQUENCY);
+		}
+	};
 
-    getFileDownloadProgress.run();
+	getFileDownloadProgress.run();
 };
 
 sgBackup.fileUploadProgress = function(e){

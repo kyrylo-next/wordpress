@@ -17,7 +17,7 @@ $pluginCapabilities = backupGuardGetCapabilities();
         <?php require_once(plugin_dir_path(__FILE__).'services.php'); ?>
         <?php require_once(plugin_dir_path(__FILE__).'support.php'); ?>
         <?php
-            if ($pluginCapabilities == BACKUP_GUARD_CAPABILITIES_FREE) {
+            if (SGBoot::isFeatureAvailable('SHOW_UPGRADE_PAGE')) {
                 require_once(plugin_dir_path(__FILE__).'proFeatures.php');
             }
         ?>

@@ -145,6 +145,16 @@ $contentClassName = getBackupPageContentClassName('settings');
                             </label>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-3 sg-control-label">
+                            <?php _backupGuardT('Send usage data'); ?>
+                        </label>
+                        <div class="col-md-3 text-left">
+                            <label class="sg-switch-container">
+                                <input type="checkbox" name="backup-send-usage-data-status" class="sg-switch backup-send-usage-data-status" <?php echo $allowDataCollection?'checked="checked"':''?>>
+                            </label>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <label class="col-md-3 sg-control-label" for='sg-paths-to-exclude'><?php _backupGuardT("Exclude paths (separated by commas)")?></label>

@@ -8259,3 +8259,46 @@ a#sg-logo:focus {
   }
 }
 /*Pricing table page CSS*/
+
+.sgbg-welcome-title {
+  margin-top: 0 !important;
+  margin-bottom: 6px !important;
+}
+
+.sg-data-collection-label {
+  text-align: left;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: text-bottom;
+}
+
+.sg-data-collection-label label {
+  font-weight: normal;
+}
+
+.backup-send-usage-data-status-wrapper {
+  text-align: left;
+  display: inline-block;
+}
+
+.bg-initial-privacy-links-container {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;;
+}
+
+.bg-initial-privacy-links-container  a {
+  font-size: 16px;
+  text-decoration: none;
+  margin: 0 15px;
+  color: #016cb0;
+}
+
+.sgbg-send-usage-data-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sgbg-send-usage-data-wrapper span.bootstrap-switch-handle-on.bootstrap-switch-primary {
+  background: #007cba;
+}

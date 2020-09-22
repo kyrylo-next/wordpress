@@ -483,15 +483,24 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
                 .oceanwp-theme #searchform-overlay .aws-container form {
                     position: static;
                 }
-
                 .oceanwp-theme #searchform-overlay a.search-overlay-close {
                     top: -100px;
                 }
-
                 #sidr .aws-container {
                     margin: 30px 20px 0;
                 }
-
+                #medium-searchform .aws-container,
+                #vertical-searchform .aws-container {
+                    background: #f5f5f5;
+                }
+                #medium-searchform .aws-container .aws-search-form .aws-search-field {
+                    max-width: 100%;
+                }
+                #medium-searchform .aws-container .aws-search-form .aws-form-btn,
+                #vertical-searchform .aws-container .aws-search-form .aws-form-btn{
+                    background: #f5f5f5;
+                    border: none;
+                }
             </style>
 
             <script>
@@ -963,6 +972,7 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
                 $selectors[] = '#searchform-overlay form';
                 $selectors[] = '#sidr .sidr-class-mobile-searchform';
                 $selectors[] = '#mobile-menu-search form';
+                $selectors[] = '#site-header form';
             }
 
             if ( 'Jupiter' === $this->current_theme ) {
@@ -972,6 +982,10 @@ if ( ! class_exists( 'AWS_Integrations' ) ) :
 
             if ( 'Woodmart' === $this->current_theme ) {
                 $selectors[] = '.woodmart-search-form form, form.woodmart-ajax-search';
+            }
+
+            if ( 'Venedor' === $this->current_theme ) {
+                $selectors[] = '#search-form form';
             }
 
             return $selectors;

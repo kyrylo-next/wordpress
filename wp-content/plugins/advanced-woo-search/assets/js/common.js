@@ -172,6 +172,9 @@ AwsHooks.filters = AwsHooks.filters || {};
                                                     html += '<span class="aws_result_count">&nbsp;(' + taxitem.count + ')</span>';
                                                 }
                                             html += '</span>';
+                                            if ( ( typeof taxitem.excerpt !== 'undefined' ) && taxitem.excerpt ) {
+                                                html += '<span class="aws_result_excerpt">' + taxitem.excerpt + '</span>';
+                                            }
                                         html += '</span>';
                                     html += '</a>';
                                 html += '</li>';
