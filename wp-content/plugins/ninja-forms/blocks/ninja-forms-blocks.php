@@ -23,9 +23,4 @@ if(file_exists($autoloader = dirname(__DIR__) . '/vendor/autoload.php')) {
     return;
 }
 
-// Check for PHP version compatibility.
-if (!version_compare(PHP_VERSION, '7.1.0', '>=')) {
-    return;
-}
-
 include_once plugin_dir_path(__FILE__) . '/bootstrap.php';
