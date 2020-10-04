@@ -3,8 +3,8 @@ Tags: bundle, widget, button, slider, image, carousel, price table, google maps,
 Requires at least: 4.2
 Tested up to: 5.5
 Requires PHP: 5.6.20
-Stable tag: 1.17.7
-Build time: 2020-09-10T19:47:59+02:00
+Stable tag: 1.17.8
+Build time: 2020-09-28T19:07:57+02:00
 License: GPLv3 or later
 Contributors: gpriday, braam-genis
 Donate link: https://siteorigin.com/downloads/premium/
@@ -65,6 +65,9 @@ The SiteOrigin Widgets Bundle is the perfect platform to build widgets for your 
 3. An example of the button widget.
 
 == Changelog ==
+
+== 1.17.8 - 28 September 2020 ==
+* Image: Prevent image stretching while using Safari
 
 == 1.17.7 - 10 September 2020 ==
 * Hero and Layout Sliders: Disable image preload for images added to frames.
