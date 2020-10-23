@@ -28,7 +28,7 @@ class Enhanced_Ecommerce_Google_Analytics_Public {
      * @return void
      */
     //set plugin version
-    public $tvc_eeVer = '2.3.2';
+    public $tvc_eeVer = '2.3.6';
 
     protected $tvc_aga;
 

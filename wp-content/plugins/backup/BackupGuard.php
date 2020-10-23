@@ -83,22 +83,27 @@ else {
 
 function backup_guard_admin_menu()
 {
-	add_menu_page('Backups', 'BackupGuard', 'manage_options', 'backup_guard_backups', 'includeAllPages', 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MzAuMzQgNjYzLjAzIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPkFydGJvYXJkIDI8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTUzMC4xMSwxODUuNzljLTcxLjktOC44Mi0xMzcuNzMtNDAtMTkwLTg2LjU3djkyLjY1YTI4MC41OSwyODAuNTksMCwwLDAsMTE2LjUyLDUyYy05LjE0LDg5LjQzLTUyLDE2OS41NS0xMTYuNTIsMjI4Ljg3djkwLjRDNDU5Ljg0LDQ3Ny4xMyw1MzAuNiwzMzMuNDIsNTMwLjExLDE4NS43OVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNzQuMjksMjQ0YTI4MC40NiwyODAuNDYsMCwwLDAsMTE1Ljc3LTUxLjExVjEwMGMtNTIuNDQsNDYuMjgtMTE3LjYyLDc3LTE4OS44Myw4NS4xNUM5OS41NCwzMzMsMTcwLjIyLDQ3Ni44MiwyOTAuMDYsNTYzVjQ3Mi4wOUMyMjYsNDEyLjg2LDE4My40MiwzMzMuMDYsMTc0LjI5LDI0NFoiLz48L3N2Zz4=', 74);
+    $capability = 'manage_options';
+    if (defined('SG_USER_MODE') && SG_USER_MODE) {
+        $capability = 'read';
+    }
 
-	add_submenu_page('backup_guard_backups', _backupGuardT('Backups', true), _backupGuardT('Backups', true), 'manage_options', 'backup_guard_backups', 'includeAllPages');
-	add_submenu_page('backup_guard_backups', _backupGuardT('Cloud', true), _backupGuardT('Cloud', true), 'manage_options', 'backup_guard_cloud', 'includeAllPages');
-	add_submenu_page('backup_guard_backups', _backupGuardT('Schedule', true), _backupGuardT('Schedule', true), 'manage_options', 'backup_guard_schedule', 'includeAllPages');
+	add_menu_page('Backups', 'BackupGuard', $capability, 'backup_guard_backups', 'includeAllPages', 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MzAuMzQgNjYzLjAzIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPkFydGJvYXJkIDI8L3RpdGxlPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTUzMC4xMSwxODUuNzljLTcxLjktOC44Mi0xMzcuNzMtNDAtMTkwLTg2LjU3djkyLjY1YTI4MC41OSwyODAuNTksMCwwLDAsMTE2LjUyLDUyYy05LjE0LDg5LjQzLTUyLDE2OS41NS0xMTYuNTIsMjI4Ljg3djkwLjRDNDU5Ljg0LDQ3Ny4xMyw1MzAuNiwzMzMuNDIsNTMwLjExLDE4NS43OVoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNzQuMjksMjQ0YTI4MC40NiwyODAuNDYsMCwwLDAsMTE1Ljc3LTUxLjExVjEwMGMtNTIuNDQsNDYuMjgtMTE3LjYyLDc3LTE4OS44Myw4NS4xNUM5OS41NCwzMzMsMTcwLjIyLDQ3Ni44MiwyOTAuMDYsNTYzVjQ3Mi4wOUMyMjYsNDEyLjg2LDE4My40MiwzMzMuMDYsMTc0LjI5LDI0NFoiLz48L3N2Zz4=', 74);
 
-	add_submenu_page('backup_guard_backups', _backupGuardT('Settings', true), _backupGuardT('Settings', true), 'manage_options', 'backup_guard_settings', 'includeAllPages');
+	add_submenu_page('backup_guard_backups', _backupGuardT('Backups', true), _backupGuardT('Backups', true), $capability, 'backup_guard_backups', 'includeAllPages');
+	add_submenu_page('backup_guard_backups', _backupGuardT('Cloud', true), _backupGuardT('Cloud', true), $capability, 'backup_guard_cloud', 'includeAllPages');
+	add_submenu_page('backup_guard_backups', _backupGuardT('Schedule', true), _backupGuardT('Schedule', true), $capability, 'backup_guard_schedule', 'includeAllPages');
 
-	add_submenu_page('backup_guard_backups', _backupGuardT('System Info.', true), _backupGuardT('System Info.', true), 'manage_options', 'backup_guard_system_info', 'includeAllPages');
+	add_submenu_page('backup_guard_backups', _backupGuardT('Settings', true), _backupGuardT('Settings', true), $capability, 'backup_guard_settings', 'includeAllPages');
 
-	add_submenu_page('backup_guard_backups', _backupGuardT('Services', true), _backupGuardT('Services', true), 'manage_options', 'backup_guard_services', 'includeAllPages');
-	add_submenu_page('backup_guard_backups', _backupGuardT('Support', true), _backupGuardT('Support', true), 'manage_options', 'backup_guard_support', 'includeAllPages');
+	add_submenu_page('backup_guard_backups', _backupGuardT('System Info.', true), _backupGuardT('System Info.', true), $capability, 'backup_guard_system_info', 'includeAllPages');
+
+	add_submenu_page('backup_guard_backups', _backupGuardT('Services', true), _backupGuardT('Services', true), $capability, 'backup_guard_services', 'includeAllPages');
+	add_submenu_page('backup_guard_backups', _backupGuardT('Support', true), _backupGuardT('Support', true), $capability, 'backup_guard_support', 'includeAllPages');
 
 	//Check if should show upgrade page
 	if (SGBoot::isFeatureAvailable('SHOW_UPGRADE_PAGE')) {
-		add_submenu_page('backup_guard_backups', _backupGuardT('Why upgrade?', true), _backupGuardT('Why upgrade?', true), 'manage_options', 'backup_guard_pro_features', 'includeAllPages');
+		add_submenu_page('backup_guard_backups', _backupGuardT('Why upgrade?', true), _backupGuardT('Why upgrade?', true), $capability, 'backup_guard_pro_features', 'includeAllPages');
 	}
 }
 
@@ -368,7 +373,7 @@ function backup_guard_create_schedule()
 function backup_guard_get_manual_modal()
 {
 	check_ajax_referer('backupGuardAjaxNonce', 'token');
-	if (current_user_can( 'activate_plugins' )) {
+	if (current_user_can( 'activate_plugins' ) || (defined('SG_USER_MODE') && SG_USER_MODE)) {
 		require_once(SG_PUBLIC_AJAX_PATH.'modalManualBackup.php');
     }
 	exit();
@@ -429,7 +434,7 @@ function backup_guard_get_review_modal()
 
 function backup_guard_register_ajax_callbacks()
 {
-	if (is_super_admin()) {
+	if (is_super_admin() || (defined('SG_USER_MODE') && SG_USER_MODE)) {
 		// adding actions to handle ajax and post requests
 		add_action('wp_ajax_backup_guard_cancelBackup', 'backup_guard_cancel_backup');
 		add_action('wp_ajax_backup_guard_checkBackupCreation', 'backup_guard_check_backup_creation');
@@ -602,7 +607,7 @@ function backup_guard_check_restore_creation()
 
 function backup_guard_cloud_dropbox()
 {
-	if (current_user_can('activate_plugins')) {
+	if (current_user_can('activate_plugins') || (defined('SG_USER_MODE') && SG_USER_MODE)) {
 		check_ajax_referer('backupGuardAjaxNonce', 'token');
 		require_once(SG_PUBLIC_AJAX_PATH . 'cloudDropbox.php');
 	}
@@ -611,7 +616,7 @@ function backup_guard_cloud_dropbox()
 function backup_guard_send_usage_status()
 {
 
-	if (current_user_can('activate_plugins')) {
+	if (current_user_can('activate_plugins') || (defined('SG_USER_MODE') && SG_USER_MODE)) {
 		check_ajax_referer('backupGuardAjaxNonce', 'token');
 		require_once(SG_PUBLIC_AJAX_PATH . 'sendUsageStatus.php');
 	}

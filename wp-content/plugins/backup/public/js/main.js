@@ -6,7 +6,7 @@ SG_NOTICE_EXECUTION_FREE_TIMEOUT = 'timeout_free_error';
 SG_NOTICE_MIGRATION_ERROR = 'migration_error';
 SG_NOTICE_NOT_WRITABLE_ERROR = 'restore_notwritable_error';
 
-jQuery(window).load(function() {
+jQuery(window).on('load', function() {
 	if (jQuery('.sg-active-action-id').length == 0) {
 		sgBackup.showReviewModal();
 	}
@@ -108,20 +108,24 @@ sgBackup.navMenu = function ()
     navMenu.unbind('click').bind('click', function (event) {
         event.preventDefault();
         sgBackup.init();
+
+        var currentUrl = jQuery(this).attr('href');
+        var openContent = jQuery(this).data('open-content');
+
+        if (typeof openContent != 'undefined' && openContent == 0) {
+            window.open(currentUrl);
+            return true;
+        }
         jQuery('.sg-backup-page-content').addClass('sg-visibility-hidden');
         jQuery('.sg-backup-sidebar-nav li').removeClass('active');
-        var currentUrl = jQuery(this).attr('href');
 
-        if (currentUrl.indexOf('wordpress.org') != -1) {
-        	window.open(currentUrl);
+        var currentKey = jQuery(this).data('page-key');
+        var currentPageContent = jQuery('#sg-backup-page-content-'+currentKey);
+
+        if (!currentPageContent.length) {
+            return false;
         }
-		var currentKey = jQuery(this).data('page-key');
-		var currentPageContent = jQuery('#sg-backup-page-content-'+currentKey);
-
-		if (!currentPageContent.length) {
-			return false;
-		}
-		jQuery(this).parent().addClass('active');
+        jQuery(this).parent().addClass('active');
         currentPageContent.removeClass('sg-visibility-hidden');
     });
 };
@@ -455,7 +459,7 @@ sgBackup.initTablePagination = function(pageName){
 			pager = jQuery(settings.pagerSelector);
 		}
 
-		var numItems = children.size();
+		var numItems = children.length;
 		var numPages = Math.ceil(numItems/perPage);
 
 		pager.data("curr",0);
@@ -549,4 +553,4 @@ sgBackup.logout = function()
 		location.reload();
 	};
 	ajaxHandler.run();
-}
+};

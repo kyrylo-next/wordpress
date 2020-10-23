@@ -25,10 +25,13 @@
 		$upgradeText = $buttonText.$upgradeTo.' by paying only difference between plans.';
 		$buttonText = $buttonText.$upgradeTo;
 	}
-	$supportUrl = network_admin_url('admin.php?page=backup_guard_support');
-	if ($pluginCapabilities == BACKUP_GUARD_CAPABILITIES_FREE) {
-		$supportUrl = BACKUP_GUARD_WORDPRESS_SUPPORT_URL;
-	}
+
+    $supportUrl = network_admin_url('admin.php?page=backup_guard_support');
+    $openContent = 1;
+    if ($pluginCapabilities == BACKUP_GUARD_CAPABILITIES_FREE) {
+        $openContent = 0;
+        $supportUrl = BACKUP_GUARD_WORDPRESS_SUPPORT_URL;
+    }
 ?>
 <div id="sg-sidebar-wrapper" class="metro">
     <a class="sg-site-url"  href="<?php echo network_admin_url('admin.php?page=backup_guard_backups'); ?>">
@@ -77,7 +80,7 @@
                 <span class="sg-action-menu-arrow"></span>
 			</li>
 			<li class="<?php echo strpos($page,'support')?'active':''?>">
-				<a href="<?php echo $supportUrl; ?>" data-page-key="support">
+				<a href="<?php echo $supportUrl; ?>" data-page-key="support" data-open-content="<?php echo $openContent; ?>">
 					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><?php _backupGuardT('Support')?>
 				</a>
                 <span class="sg-action-menu-arrow"></span>

@@ -20,7 +20,7 @@
 					<table class="table table-striped paginated sg-backup-table">
 						<tbody>
 							<tr>
-								<td class="file-select-radio"><input name="storage-radio" type="radio" value="local-pc"></td>
+								<td class="file-select-radio"><input name="storage-radio" type="radio" value="local-pc" checked></td>
 								<td></td>
 								<td><?php _backupGuardT('Local PC')?></td>
 							</tr>
