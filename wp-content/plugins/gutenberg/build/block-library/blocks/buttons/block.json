@@ -9,6 +9,11 @@
 	},
 	"supports": {
 		"anchor": true,
+<<<<<<< HEAD
 		"align": [ "wide", "full" ]
+=======
+		"align": true,
+		"alignWide": false
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 	}
 }

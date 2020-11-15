@@ -19,7 +19,11 @@ function gutenberg_render_block_core_template_part( $attributes ) {
 		// If we have a post ID and the post exists, which means this template part
 		// is user-customized, render the corresponding post content.
 		$content = get_post( $attributes['postId'] )->post_content;
+<<<<<<< HEAD
 	} elseif ( isset( $attributes['theme'] ) && basename( wp_get_theme()->get_stylesheet() ) === $attributes['theme'] ) {
+=======
+	} elseif ( isset( $attributes['theme'] ) && wp_get_theme()->stylesheet === $attributes['theme'] ) {
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 		$template_part_query = new WP_Query(
 			array(
 				'post_type'      => 'wp_template_part',

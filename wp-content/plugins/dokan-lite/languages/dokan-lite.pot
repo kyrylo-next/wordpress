@@ -2,9 +2,15 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
+<<<<<<< HEAD
 "Project-Id-Version: Dokan 3.0.13\n"
 "Report-Msgid-Bugs-To: https://wedevs.com/contact/\n"
 "POT-Creation-Date: 2020-11-12 11:49:38+00:00\n"
+=======
+"Project-Id-Version: Dokan 3.0.11\n"
+"Report-Msgid-Bugs-To: https://wedevs.com/contact/\n"
+"POT-Creation-Date: 2020-10-22 11:54:51+00:00\n"
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -50,10 +56,17 @@ msgstr ""
 msgid "Get Pro"
 msgstr ""
 
+<<<<<<< HEAD
 #: dokan.php:440 includes/Admin/AdminBar.php:75 includes/Admin/Menu.php:60
 #: includes/Dashboard/Templates/Settings.php:58
 #: includes/Dashboard/Templates/Settings.php:62 includes/template-tags.php:366
 #: src/admin/pages/Settings.vue:6
+=======
+#: dokan.php:440 includes/Admin/AdminBar.php:75 includes/Admin/Menu.php:59
+#: includes/Dashboard/Templates/Settings.php:58
+#: includes/Dashboard/Templates/Settings.php:62 includes/template-tags.php:366
+#: src/admin/pages/Settings.vue:4
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "Settings"
 msgstr ""
 
@@ -118,20 +131,34 @@ msgstr ""
 msgid "Dokan"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Admin/AdminBar.php:48 includes/Admin/Menu.php:43
 #: includes/Admin/Settings.php:473 includes/Install/Installer.php:157
 #: includes/template-tags.php:335 src/admin/pages/Dashboard.vue:5
+=======
+#: includes/Admin/AdminBar.php:48 includes/Admin/Menu.php:42
+#: includes/Admin/Settings.php:473 includes/Install/Installer.php:157
+#: includes/template-tags.php:335 src/admin/pages/Dashboard.vue:3
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "Dashboard"
 msgstr ""
 
 #: includes/Admin/AdminBar.php:57 includes/Admin/Menu.php:32
+<<<<<<< HEAD
 #: includes/Admin/Menu.php:44 includes/Admin/SetupWizard.php:160
+=======
+#: includes/Admin/Menu.php:43 includes/Admin/SetupWizard.php:160
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: includes/functions.php:2921 includes/template-tags.php:357
 #: templates/withdraw/header.php:11
 msgid "Withdraw"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Admin/AdminBar.php:66 includes/Admin/Menu.php:52
+=======
+#: includes/Admin/AdminBar.php:66 includes/Admin/Menu.php:51
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "PRO Features"
 msgstr ""
 
@@ -913,7 +940,11 @@ msgstr ""
 msgid "We'll use %1$s for product weight and %2$s for product dimensions."
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Admin/UserProfile.php:38 includes/Ajax.php:145
+=======
+#: includes/Admin/UserProfile.php:38 includes/Ajax.php:141
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: includes/Assets.php:408 src/admin/pages/VendorAccountFields.vue:279
 #: src/admin/pages/VendorAccountFields.vue:311
 #: src/admin/pages/VendorAccountFields.vue:343
@@ -1102,17 +1133,29 @@ msgstr ""
 msgid "Commision: "
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Ajax.php:72 includes/Ajax.php:1003 includes/Ajax.php:1033
+=======
+#: includes/Ajax.php:70 includes/Ajax.php:996
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: includes/Dashboard/Templates/Withdraw.php:110
 #: includes/Dashboard/Templates/Withdraw.php:175
 msgid "You have no permission to do this action"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Ajax.php:94
 msgid "Something wrong, please try again later"
 msgstr ""
 
 #: includes/Ajax.php:112 includes/Dashboard/Templates/Settings.php:211
+=======
+#: includes/Ajax.php:92
+msgid "Something wrong, please try again later"
+msgstr ""
+
+#: includes/Ajax.php:108 includes/Dashboard/Templates/Settings.php:211
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: includes/Dashboard/Templates/Settings.php:225
 #: includes/Dashboard/Templates/Settings.php:237
 #: includes/Dashboard/Templates/Settings.php:249
@@ -1137,6 +1180,7 @@ msgstr ""
 msgid "You do not have permission to change this order"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Ajax.php:275
 #. translators: numeric number of files
 msgid "File %d"
@@ -1204,6 +1248,74 @@ msgid "User logged in successfully."
 msgstr ""
 
 #: includes/Ajax.php:1009
+=======
+#: includes/Ajax.php:270
+msgid "File %d"
+msgstr ""
+
+#: includes/Ajax.php:291
+msgid "You have no permission to manage this order"
+msgstr ""
+
+#: includes/Ajax.php:327 includes/Ajax.php:332
+msgid "Please provide your name."
+msgstr ""
+
+#: includes/Ajax.php:339 includes/template-tags.php:150
+msgid "Something went wrong!"
+msgstr ""
+
+#: includes/Ajax.php:345 includes/REST/StoreController.php:784
+msgid "Email sent successfully!"
+msgstr ""
+
+#: includes/Ajax.php:404 templates/orders/details.php:292
+msgid "Delete note"
+msgstr ""
+
+#: includes/Ajax.php:434
+msgid "Shipping provider: "
+msgstr ""
+
+#: includes/Ajax.php:434
+msgid "Shipping number: "
+msgstr ""
+
+#: includes/Ajax.php:434
+msgid "Shipped date: "
+msgstr ""
+
+#: includes/Ajax.php:476 includes/woo-views/html-product-download.php:14
+msgid "Delete"
+msgstr ""
+
+#: includes/Ajax.php:519 includes/Vendor/UserSwitch.php:122
+msgid "Error: Nonce verification failed"
+msgstr ""
+
+#: includes/Ajax.php:609
+msgid "Image could not be processed. Please go back and try again."
+msgstr ""
+
+#: includes/Ajax.php:764
+#. translators: 1: user display name 2: user ID 3: user email
+msgid "%1$s (#%2$s &ndash; %3$s)"
+msgstr ""
+
+#: includes/Ajax.php:912
+msgid "Invalid username or password."
+msgstr ""
+
+#: includes/Ajax.php:923
+msgid "Wrong username or password."
+msgstr ""
+
+#: includes/Ajax.php:952
+msgid "User logged in successfully."
+msgstr ""
+
+#: includes/Ajax.php:1002
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "id param is required"
 msgstr ""
 
@@ -1401,18 +1513,27 @@ msgstr ""
 msgid "Please insert value less than the regular price!"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Assets.php:661 includes/Assets.php:828
+=======
+#: includes/Assets.php:661 includes/Assets.php:826
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #. translators: %s: decimal
 msgid "Please enter with one decimal point (%s) without thousand separators."
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Assets.php:663 includes/Assets.php:830
+=======
+#: includes/Assets.php:663 includes/Assets.php:828
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #. translators: %s: price decimal separator
 msgid ""
 "Please enter with one monetary decimal point (%s) without thousand "
 "separators and currency symbols."
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Assets.php:664 includes/Assets.php:831
 msgid "Please enter in country code with two capital letters."
 msgstr ""
@@ -1422,12 +1543,27 @@ msgid "Please enter in a value less than the regular price."
 msgstr ""
 
 #: includes/Assets.php:666 includes/Assets.php:833
+=======
+#: includes/Assets.php:664 includes/Assets.php:829
+msgid "Please enter in country code with two capital letters."
+msgstr ""
+
+#: includes/Assets.php:665 includes/Assets.php:830
+msgid "Please enter in a value less than the regular price."
+msgstr ""
+
+#: includes/Assets.php:666 includes/Assets.php:831
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid ""
 "This product has produced sales and may be linked to existing orders. Are "
 "you sure you want to delete it?"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Assets.php:667 includes/Assets.php:834
+=======
+#: includes/Assets.php:667 includes/Assets.php:832
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid ""
 "This action cannot be reversed. Are you sure you wish to erase personal "
 "data from the selected orders?"
@@ -2634,44 +2770,52 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Product/functions.php:267
 #. translators: number of items
+=======
+#: includes/Product/functions.php:266
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "%s item"
 msgid_plural "%s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/Product/functions.php:272
+#: includes/Product/functions.php:271
 msgid "Expand"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Product/functions.php:272 src/admin/components/ColorPicker.vue:31
+=======
+#: includes/Product/functions.php:271 src/admin/components/ColorPicker.vue:31
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: src/upgrade/App.vue:49 templates/orders/details.php:357
 #: templates/settings/store-form.php:256
 msgid "Close"
 msgstr ""
 
-#: includes/Product/functions.php:275
+#: includes/Product/functions.php:274
 msgid "Go to the first page"
 msgstr ""
 
-#: includes/Product/functions.php:276
+#: includes/Product/functions.php:275
 msgid "Go to the previous page"
 msgstr ""
 
-#: includes/Product/functions.php:278
+#: includes/Product/functions.php:277
 msgid "Select Page"
 msgstr ""
 
-#: includes/Product/functions.php:279
+#: includes/Product/functions.php:278
 msgid "Current page"
 msgstr ""
 
-#: includes/Product/functions.php:286
+#: includes/Product/functions.php:285
 msgid "Go to the next page"
 msgstr ""
 
-#: includes/Product/functions.php:287
+#: includes/Product/functions.php:286
 msgid "Go to the last page"
 msgstr ""
 
@@ -2696,7 +2840,11 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
+<<<<<<< HEAD
 #: includes/Product/functions.php:451 templates/my-orders.php:88
+=======
+#: includes/Product/functions.php:450 templates/my-orders.php:88
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: templates/orders/listing.php:161 templates/sub-orders.php:59
 msgid "View"
 msgstr ""
@@ -4765,7 +4913,11 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
+<<<<<<< HEAD
 #: src/admin/components/Fields.vue:252 src/admin/pages/Settings.vue:192
+=======
+#: src/admin/components/Fields.vue:252 src/admin/pages/Settings.vue:188
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "Select"
 msgstr ""
 
@@ -4812,7 +4964,12 @@ msgstr ""
 msgid "Unlock these awesome frontend features with Dokan PRO"
 msgstr ""
 
+<<<<<<< HEAD
 #: src/admin/components/SettingsBanner.vue:7 templates/admin-header.php:49
+=======
+#: src/admin/components/SettingsBanner.vue:7
+#: src/admin/components/UpgradeBanner.vue:5
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -4828,6 +4985,18 @@ msgstr ""
 
 #: src/admin/components/TextEditor.vue:180
 msgid "Please select an image,"
+msgstr ""
+
+#: src/admin/components/UpgradeBanner.vue:4
+msgid "You're using"
+msgstr ""
+
+#: src/admin/components/UpgradeBanner.vue:4
+msgid "Dokan Lite"
+msgstr ""
+
+#: src/admin/components/UpgradeBanner.vue:4
+msgid "To unlock more features, consider"
 msgstr ""
 
 #: src/admin/components/UploadImage.vue:75
@@ -5098,11 +5267,19 @@ msgstr ""
 msgid "Bookable Product"
 msgstr ""
 
+<<<<<<< HEAD
 #: src/admin/pages/Settings.vue:11
 msgid "Dismiss this notice."
 msgstr ""
 
 #: src/admin/pages/Settings.vue:190
+=======
+#: src/admin/pages/Settings.vue:9
+msgid "Dismiss this notice."
+msgstr ""
+
+#: src/admin/pages/Settings.vue:186
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "Choose your file"
 msgstr ""
 
@@ -7090,7 +7267,7 @@ msgctxt "enhanced select"
 msgid "Searching&hellip;"
 msgstr ""
 
-#: includes/Product/functions.php:284
+#: includes/Product/functions.php:283
 msgctxt "number of pages"
 msgid "of"
 msgstr ""

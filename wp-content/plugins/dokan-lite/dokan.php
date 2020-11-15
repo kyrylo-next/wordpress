@@ -3,7 +3,11 @@
  * Plugin Name: Dokan
  * Plugin URI: https://wordpress.org/plugins/dokan-lite/
  * Description: An e-commerce marketplace plugin for WordPress. Powered by WooCommerce and weDevs.
+<<<<<<< HEAD
  * Version: 3.0.13
+=======
+ * Version: 3.0.11
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
  * Author: weDevs
  * Author URI: https://wedevs.com/
  * Text Domain: dokan-lite
@@ -56,7 +60,11 @@ final class WeDevs_Dokan {
      *
      * @var string
      */
+<<<<<<< HEAD
     public $version = '3.0.13';
+=======
+    public $version = '3.0.11';
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
     /**
      * Instance of self

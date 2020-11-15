@@ -59,7 +59,11 @@ class Module extends BaseApp {
 
 		wp_enqueue_script(
 			'elementor-admin-bar',
+<<<<<<< HEAD
 			$this->get_js_assets_url( 'elementor-admin-bar' ),
+=======
+			$this->get_js_assets_url( 'admin-bar' ),
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 			[ 'elementor-frontend-modules' ],
 			ELEMENTOR_VERSION,
 			true
@@ -133,7 +137,11 @@ class Module extends BaseApp {
 	 * Module constructor.
 	 */
 	public function __construct() {
+<<<<<<< HEAD
 		add_action( 'elementor/frontend/before_get_builder_content', [ $this, 'add_document_to_admin_bar' ], 10, 2 );
+=======
+		add_action( 'elementor/frontend/get_builder_content', [ $this, 'add_document_to_admin_bar' ], 10, 2 );
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 		add_action( 'wp_footer', [ $this, 'enqueue_scripts' ], 11 /* after third party scripts */ );
 	}
 }

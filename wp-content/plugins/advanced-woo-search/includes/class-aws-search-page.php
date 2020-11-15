@@ -187,9 +187,13 @@ if ( ! class_exists( 'AWS_Search_Page' ) ) :
          */
         public function posts_pre_query( $posts, $query ) {
 
+<<<<<<< HEAD
             $post_type_product = ( $query->get( 'post_type' ) && is_string( $query->get( 'post_type' ) ) && $query->get( 'post_type' ) === 'product' ) ? true : false;
 
             if ( $post_type_product && isset( $_GET['type_aws'] ) && isset( $query->query_vars['s'] ) && $query->query && isset( $query->query['fields'] ) && $query->query['fields'] == 'ids' &&
+=======
+            if ( isset( $_GET['type_aws'] ) && isset( $query->query_vars['s'] ) && $query->query && isset( $query->query['fields'] ) && $query->query['fields'] == 'ids' &&
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
                 ( ( isset( $this->data['is_elementor'] ) && $this->data['is_elementor'] ) || ( isset( $this->data['is_divi_s_page'] ) && $this->data['is_divi_s_page'] ) )
             )
             {
@@ -315,9 +319,14 @@ if ( ! class_exists( 'AWS_Search_Page' ) ) :
          */
         public function filter_found_posts( $found_posts, $query ) {
 
+<<<<<<< HEAD
             $post_type_product = ( $query->get( 'post_type' ) && is_string( $query->get( 'post_type' ) ) && $query->get( 'post_type' ) === 'product' ) ? true : false;
 
             if ( $post_type_product && isset( $_GET['type_aws'] ) && isset( $this->data['all_products'] ) && $this->data['all_products'] && isset( $query->query_vars['nopaging'] ) && ! $query->query_vars['nopaging'] &&
+=======
+            // Elementor search template fix
+            if ( isset( $_GET['type_aws'] ) && isset( $this->data['all_products'] ) && $this->data['all_products'] && isset( $query->query_vars['nopaging'] ) && ! $query->query_vars['nopaging'] &&
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
                 ( ( isset( $this->data['is_elementor'] ) && $this->data['is_elementor'] ) || ( isset( $this->data['is_divi_s_page'] ) && $this->data['is_divi_s_page'] ) )
             ) {
                 $found_posts = count( $this->data['all_products'] );

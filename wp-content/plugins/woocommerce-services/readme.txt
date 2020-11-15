@@ -4,6 +4,7 @@ Tags: shipping, stamps, usps, woocommerce, taxes, payment, stripe, dhl, labels
 Requires at least: 4.6
 Requires PHP: 5.3
 Tested up to: 5.5
+<<<<<<< HEAD
 Stable tag: 1.25.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,6 +19,21 @@ With WooCommerce Shipping & Tax, critical services are hosted on Automattic’s 
 To use the features, simply install this plugin and activate the ones you want directly in your dashboard. As we add more services, you’ll see more features available directly in WooCommerce – making setup simpler.
 
 NOTE: This extensions was previously referred to as WooCommerce Services.
+=======
+Stable tag: 1.25.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+WooCommerce Shipping and Taxes offers automated tax calculation, shipping label printing, smoother payment setup, and other hosted services for WooCommerce.
+
+== Description ==
+
+WooCommerce Shipping and Taxes makes basic eCommerce features like shipping more reliable by taking the burden off of your site’s infrastructure.
+
+With WooCommerce Shipping and Taxes, critical services are hosted on Automattic’s best-in-class infrastructure, rather than relying on your store’s hosting. That means your store will be more stable and faster.
+To use the features, simply install this plugin and activate the ones you want directly in your dashboard. As we add more services, you’ll see more features available directly in WooCommerce – making setup simpler.
+
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
 = Print USPS and DHL shipping labels and save up to 90% =
 Ship domestically and internationally right from your WooCommerce dashboard. Print USPS and DHL labels and instantly save up to 90%.
@@ -68,6 +84,12 @@ Absolutely! You can read our Terms of Service [here](https://en.wordpress.com/to
 
 The source code is freely available [in GitHub](https://github.com/Automattic/woocommerce-services).
 
+<<<<<<< HEAD
+=======
+= Can I show shipping rates at checkout? =
+
+As of the WooCommerce 3.5 release, WooCommerce Shipping and Taxes no longer provides shipping rates for new stores. If you’re already using shipping rates in WooCommerce Shipping and Taxes, they will continue to work.
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
 == Screenshots ==
 
@@ -81,6 +103,7 @@ The source code is freely available [in GitHub](https://github.com/Automattic/wo
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 1.25.2 - 2020-11-10 =
 * Tweak - Add ZIP code validation to UPS(beta) signup form.
 * Fix   - Issue with printing labels in some iOS devices through Safari.
@@ -96,6 +119,8 @@ The source code is freely available [in GitHub](https://github.com/Automattic/wo
 * Add   - Add pre-commit and pre-push git hooks for linting and unit tests.
 * Add   - Disable refunds for USPS letters.
 
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 = 1.25.0 - 2020-10-13 =
 * Fix   - UPS connect redirect prompt
 * Fix   - Allow UPS label purchase without payment method
@@ -158,3 +183,16 @@ The source code is freely available [in GitHub](https://github.com/Automattic/wo
 * Add   - Link to carrier's schedule pickup page.
 * Add   - Improved shipping service feature descriptions.
 * Add   - Option to mark order complete when label is printed.
+<<<<<<< HEAD
+=======
+
+= 1.22.5 - 2020-03-17 =
+* Add   - Admin asset API endpoint.
+* Fix   - GB support for WC 4.0.
+* Fix   - Jetpack staging check for PHP 5.3.
+* Tweak - Bump WP tested version to 5.4.
+
+= 1.22.4 - 2020-03-02 =
+* Fix   - Stop using deprecated method Jetpack::is_staging_site() when Jetpack
+8.1 is installed.
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3

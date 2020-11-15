@@ -4,7 +4,11 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: widget, plugin, woocommerce, search, product search, woocommerce search, ajax search, live search, custom search, ajax, shortcode, better search, relevance search, relevant search, search by sku, search plugin, shop, store, wordpress search, wp ajax search, wp search, wp search plugin, sidebar, ecommerce, merketing, products, category search, instant-search, search highlight, woocommerce advanced search, woocommerce live search, WooCommerce Plugin, woocommerce product search
 Requires at least: 4.0
 Tested up to: 5.5
+<<<<<<< HEAD
 Stable tag: 2.14
+=======
+Stable tag: 2.13
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -111,12 +115,15 @@ Yep. This plugin is always compatible with the latest version of Woocommerce?
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 2.14 ( 2020-11-02 ) =
 * Update - Elementor search page support
 * Update - Divi Builder search page support
 * Update - Astra theme integration
 * Update - Storefront theme integration for footer search form
 
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 = 2.13 ( 2020-10-19 ) =
 * Add - FacetWP plugin integration. [Read more](https://advanced-woo-search.com/guide/facetwp/)
 * Add - Support for 'Product Visibility by User Role for WooCommerce' plugin. [Read more](https://advanced-woo-search.com/guide/product-visibility-by-user-role-for-woocommerce/)

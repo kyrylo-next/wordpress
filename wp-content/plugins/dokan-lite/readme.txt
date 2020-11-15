@@ -7,7 +7,11 @@ Tested up to: 5.5
 WC requires at least: 3.0
 WC tested up to: 4.6
 Requires PHP: 5.6
+<<<<<<< HEAD
 Stable tag: 3.0.13
+=======
+Stable tag: 3.0.11
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -291,6 +295,7 @@ A. Just install and activate the PRO version without deleting the free plugin. A
 
 == Changelog ==
 
+<<<<<<< HEAD
 = v3.0.13 (November 12, 2020) =
 
 - **New:** Added new filter `dokan_is_product_author`
@@ -304,6 +309,8 @@ A. Just install and activate the PRO version without deleting the free plugin. A
 - **Fix:** Refactor upgrade to pro banner.
 - **Fix:** Temporary disable WooCommerce payment and shipping setup step from vendor setup wizard section. It was throwing a lot of deprecated warnings, we will fix it in the next version.
 
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 = v3.0.11 (October 22, 2020) =
 
  * **Fix:** Fixes a JS loading issue when `SCRIPT_DEBUG` is enabled

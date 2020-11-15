@@ -5,8 +5,13 @@ Author: Backup Guard
 Donate link: https://backup-guard.com/products/backup-wordpress
 Tags: backup, wordpress backup plugin, backup plugin, database backup, migrate, back up
 Requires at least: 3.8
+<<<<<<< HEAD
 Tested up to: 5.5.3
 Stable tag: 1.5.0
+=======
+Tested up to: 5.5.1
+Stable tag: 1.4.8
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -167,11 +172,14 @@ When you are facing an issue of any kind with any of our products, the first thi
 6.  Site backup customization
 
 == Changelog ==
+<<<<<<< HEAD
 = 1.5.0 =
 * Fixed the database restore process failure which was caused by the backup tree file
   
 = 1.4.9 =
 * Fixed messages
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
 = 1.4.8 =
 * Bug fixed related to Dropbox connection issue

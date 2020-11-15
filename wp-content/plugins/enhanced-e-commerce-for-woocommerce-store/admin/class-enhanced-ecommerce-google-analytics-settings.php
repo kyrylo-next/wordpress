@@ -65,6 +65,7 @@ class Enhanced_Ecommerce_Google_Settings {
     }
 
     public static function update_analytics_options($settings) {
+<<<<<<< HEAD
         if ( !get_option($settings)) {
             $ee_options = array();
             if(is_array($_POST)) {
@@ -100,6 +101,28 @@ class Enhanced_Ecommerce_Google_Settings {
             }
             update_option($settings, serialize( $get_ee_settings ));
         }
+=======
+        $get_ee_settings = unserialize(get_option($settings));
+
+        if(is_array($get_ee_settings)) {
+            foreach ($get_ee_settings as $key => $value) {
+                if(!isset($_POST[$key])){
+                    $_POST[$key] = $value;
+                }
+                if( $_POST[$key] != $value && $value != '') {
+                    $get_ee_settings[$key] =  $_POST[$key];
+                }
+            }
+        }
+        if(is_array($_POST)) {
+            foreach($_POST as $key=>$value){
+                if(!array_key_exists($key,$get_ee_settings)){
+                    $get_ee_settings[$key] =  $value;
+                }
+            }
+        }
+        update_option($settings, serialize( $get_ee_settings ));
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
     }
 
 

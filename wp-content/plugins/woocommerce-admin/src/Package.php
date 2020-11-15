@@ -24,7 +24,11 @@ class Package {
 	 *
 	 * @var string
 	 */
+<<<<<<< HEAD
 	const VERSION = '1.6.3';
+=======
+	const VERSION = '1.6.2';
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
 	/**
 	 * Package active.

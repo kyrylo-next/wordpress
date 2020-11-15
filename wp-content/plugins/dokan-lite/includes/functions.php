@@ -87,7 +87,11 @@ function dokan_is_product_author( $product_id = 0 ) {
         $author = get_post_field( 'post_author', $product_id );
     }
 
+<<<<<<< HEAD
     if ( absint( $author ) === apply_filters( 'dokan_is_product_author', dokan_get_current_user_id(), $product_id ) ) {
+=======
+    if ( absint( $author ) === dokan_get_current_user_id() ) {
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
         return true;
     }
 

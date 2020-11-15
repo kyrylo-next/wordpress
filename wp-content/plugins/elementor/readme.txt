@@ -4,7 +4,11 @@ Tags: page builder, editor, landing page, drag-and-drop, elementor, visual edito
 Requires at least: 5.0
 Tested up to: 5.5
 Requires PHP: 5.6
+<<<<<<< HEAD
 Stable tag: 3.0.13
+=======
+Stable tag: 3.0.12
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -218,6 +222,7 @@ No. Elementor supports WordPress 5.0 or greater, and is compatible with PHP 5.6 
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 3.0.13 - 2020-11-04 =
 * Tweak: Added compatibility with WordPress v5.6 to the Editor panel ([#12958](https://github.com/elementor/elementor/issues/12958))
 * Tweak: Updated translation strings in Theme Builder promotional screen
@@ -233,6 +238,8 @@ No. Elementor supports WordPress 5.0 or greater, and is compatible with PHP 5.6 
 * Fix: Pasting style with Global values is not reflected in the Panel
 * Fix: Can't submit forms from templates when the parent post is empty
 
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 = 3.0.12 - 2020-10-20 =
 * Tweak: Added "Read More" link to major version upgrade notice
 * Tweak: Added System Info CLI command

@@ -802,17 +802,28 @@ class Assets {
                 'routeComponents' => [ 'default' => null ],
                 'routes'          => $this->get_vue_admin_routes(),
                 'currency'        => $this->get_localized_price(),
+<<<<<<< HEAD
                 'proNag'          => dokan()->is_pro_exists() ? 'hide' : get_option( 'dokan_hide_pro_nag', 'show' ),
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
                 'hasPro'          => dokan()->is_pro_exists(),
                 'proVersion'      => dokan()->is_pro_exists() ? dokan_pro()->version : '',
                 'i18n'            => [ 'dokan-lite' => dokan_get_jed_locale_data( 'dokan-lite' ) ],
                 'urls'            => [
+<<<<<<< HEAD
                     'adminRoot'    => admin_url(),
                     'siteUrl'      => home_url( '/' ),
                     'storePrefix'  => dokan_get_option( 'custom_store_url', 'dokan_general', 'store' ),
                     'assetsUrl'    => DOKAN_PLUGIN_ASSEST,
                     'buynowpro'    => dokan_pro_buynow_url(),
                     'upgradeToPro' => 'https://wedevs.com/dokan-lite-upgrade-to-pro/?utm_source=plugin&utm_medium=wp-admin&utm_campaign=dokan-lite',
+=======
+                    'adminRoot'   => admin_url(),
+                    'siteUrl'     => home_url( '/' ),
+                    'storePrefix' => dokan_get_option( 'custom_store_url', 'dokan_general', 'store' ),
+                    'assetsUrl'   => DOKAN_PLUGIN_ASSEST,
+                    'buynowpro'   => dokan_pro_buynow_url(),
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
                 ],
                 'states'                 => WC()->countries->get_allowed_country_states(),
                 'countries'              => WC()->countries->get_allowed_countries(),
@@ -834,6 +845,10 @@ class Assets {
                 'i18n_remove_personal_data_notice'    => __( 'This action cannot be reversed. Are you sure you wish to erase personal data from the selected orders?', 'dokan-lite' ),
                 'decimal_point'                       => $decimal,
                 'mon_decimal_point'                   => wc_get_price_decimal_separator(),
+<<<<<<< HEAD
+=======
+                'dokan_upgrade_to_pro_url'            => 'https://wedevs.com/dokan-lite-upgrade-to-pro',
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
             ]
         );
     }

@@ -1,5 +1,6 @@
 == Changelog ==
 
+<<<<<<< HEAD
 = 9.3.0 =
 
 ### Enhancements
@@ -136,6 +137,8 @@
 - Fix widget previews in the widget screen https://github.com/WordPress/gutenberg/pull/26356 https://github.com/WordPress/gutenberg/pull/26417
 
 
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 = 9.2.1 =
 
 ### Bug Fixes

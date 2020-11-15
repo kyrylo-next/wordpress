@@ -8,12 +8,21 @@ Author: Tatvic
 Requires at least: 1.4.1
 Tested up to: 5.5
 Requires PHP: 5.6 or Higher
+<<<<<<< HEAD
 Stable tag: 2.3.6.1
 Version: 2.3.6.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Automates Enhanced Ecommerce tracking in Google Analytics using gtag.js for WooCommerce Store. It also enables Google analytics 4 (dual set up) so that you can start collecting ecommerce data in your newly created google analytics 4 property along with the existing universal analytics property and be ready for the next generation analytics.   
+=======
+Stable tag: 2.3.6
+Version: 2.3.6
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+Automates Enhanced Ecommerce tracking in Google Analytics using gtag.js for WooCommerce Store.  
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
 == Description ==
 
@@ -23,7 +32,11 @@ We believe it is very essential to listen to what your data is saying. With this
 
 <strong>Also, compatible for newly launched Google Analytics 4 dual setup.</strong> 
 
+<<<<<<< HEAD
 <a href="https://www.tatvic.com/contact/?utm_source=TatvicEE&utm_medium=GA4&utm_campaign=WPlisting">Need help in setting up Google Analytics 4 (Dual set up), you can reach out to us.</a> 
+=======
+<a href="https://www.tatvic.com/contact/?utm_source=TatvicEE&utm_medium=GA4&utm_campaign=WPlisting">Need help in setting up Google Analytics 4, you can reach out to us.</a> 
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
 
 The best part is NO CODING REQUIRED or no need to hire a developer for the set up. You can configure the plugin under 5 minutes and with a single click from your Wordpress backend. <a href="http://plugins.tatvic.com/downloads/EE-Woocommerce-Plugin-Documentation.pdf">Here is how you can configure the plugin without any hassle.</a>
@@ -102,6 +115,7 @@ Basically, you can track each and every impression and click of product, from wh
 
 == Note For Beginners : ==
 
+<<<<<<< HEAD
 <strong> How to dual setup (Universal Analytics + Google Analytics 4) property? </strong>
 
 1. Open your existing universal analytics property.
@@ -112,6 +126,8 @@ Basically, you can track each and every impression and click of product, from wh
 6. Create a new site tag by pasting the measurement id that you have created in step 3.
 7. Your dual set up is now complete and data will start flowing in both the universal analytics property and google analytics 4 property.
 
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 <strong>* Google analytics 4 data collection by this plugin is still in beta and it is advisable that you keep using your Universal Analytics set up for all the insight generation. At the same time, set up new Google Analytics 4 property and connect with your existing universal analytics property. Observe data in Google Analytics 4 propoerty for sometime and when confident you can choose to completely migrate to Google Analytics 4. </strong>
 
 == Our plugin does not support the below features out of the box ==
@@ -265,11 +281,14 @@ To avoid sending your own transaction data or sessions data in Google Analytics,
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 2.3.6.1 - 26/10/2020 =
  * Compatibility with WooCommerce 4.6.1
  * Compatibility with Wordpress 5.5.1
  * PHP warnings issue was raised in 2.3.6 by some users that is now resolved in 2.3.6.1.
 
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 = 2.3.6 - 22/10/2020 =
  * No need to manually paste Google Analytics property to start tracking. We have given google sign in functionality in order to auto fetch google analytics property.
  * Fine tuning for Google Analytics 4 dual set up/ data collection in google analytics 4 in order to be future ready for the next generation analytics.

@@ -9,12 +9,15 @@ namespace WeDevs\Dokan;
  * @since 2.8.7 Using AppSero\Insights for tracking
  */
 class Tracker {
+<<<<<<< HEAD
 
     /**
      * Insights class
      *
      * @var \Appsero\Insights
      */
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
     public $insights = null;
 
     /**
@@ -42,6 +45,7 @@ class Tracker {
 
         $this->insights->add_extra(
             [
+<<<<<<< HEAD
                 'products'      => $this->insights->get_post_count( 'product' ),
                 'orders'        => $this->get_order_count(),
                 'is_pro'        => class_exists( 'Dokan_Pro' ) ? 'Yes' : 'No',
@@ -49,6 +53,13 @@ class Tracker {
                 'dokan_version' => DOKAN_PLUGIN_VERSION,
             ]
           );
+=======
+                'products' => $this->insights->get_post_count( 'product' ),
+                'orders'   => $this->get_order_count(),
+                'is_pro'   => class_exists( 'Dokan_Pro' ) ? 'Yes' : 'No',
+            ]
+        );
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
         $this->insights->init_plugin();
     }

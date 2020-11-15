@@ -3,7 +3,11 @@ Contributors: matveb, joen, karmatosed
 Requires at least: 5.4.0
 Tested up to: 5.5
 Requires PHP: 5.6
+<<<<<<< HEAD
 Stable tag: 9.2.2
+=======
+Stable tag: 9.2.0
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,4 +61,8 @@ View <a href="https://developer.wordpress.org/block-editor/principles/versions-i
 
 == Changelog ==
 
+<<<<<<< HEAD
 To read the changelog for Gutenberg 9.3.0, please navigate to the <a href="https://github.com/WordPress/gutenberg/releases/tag/v9.3.0">release page</a>.
+=======
+To read the changelog for Gutenberg 9.2.1, please navigate to the <a href="https://github.com/WordPress/gutenberg/releases/tag/v9.2.1">release page</a>.
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3

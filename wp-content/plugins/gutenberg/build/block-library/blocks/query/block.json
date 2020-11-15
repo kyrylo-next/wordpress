@@ -19,8 +19,12 @@
 				"orderBy": "date",
 				"author": "",
 				"search": "",
+<<<<<<< HEAD
 				"exclude": [],
 				"sticky": ""
+=======
+				"exclude": []
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 			}
 		}
 	},

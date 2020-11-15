@@ -72,7 +72,11 @@ class Ajax {
             wp_send_json_error( __( 'You have no permission to do this action', 'dokan-lite' ) );
         }
 
+<<<<<<< HEAD
         $submited_data = isset( $_POST['postdata'] ) ? wp_unslash( $_POST['postdata'] ) : ''; //phpcs:ignore
+=======
+        $submited_data = isset( $_POST['postdata'] ) ? wp_unslash( $_POST['postdata'] ) : ''; // WPCS: input var ok, CSRF ok, sanitization ok.
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
         parse_str( $submited_data, $postdata );
 
@@ -537,7 +541,11 @@ class Ajax {
         $pagination_base = isset( $_REQUEST['pagination_base'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['pagination_base'] ) ) : '';
         $per_row         = isset( $_REQUEST['per_row'] ) ? absint( $_REQUEST['per_row'] ) : '3';
 
+<<<<<<< HEAD
         if ( '' !== $search_term ) {
+=======
+        if ( '' != $search_term ) {
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
             $seller_args['meta_query'] = [
                 [
                     'key'     => 'dokan_store_name',
@@ -703,8 +711,12 @@ class Ajax {
                 $return[] = [ $pro_term->term_id, $pro_term->name ];
             }
         }
+<<<<<<< HEAD
 
         echo wp_json_encode( $return );
+=======
+        echo json_encode( $return );
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
         die;
     }
 

@@ -21,6 +21,15 @@ function gutenberg_get_template_paths() {
 		$block_template_files       = array_merge( $block_template_files, $child_block_template_files );
 	}
 
+<<<<<<< HEAD
+=======
+	if ( gutenberg_is_experiment_enabled( 'gutenberg-full-site-editing-demo' ) ) {
+		$demo_block_template_files = glob( dirname( __FILE__ ) . '/demo-block-templates/*.html' );
+		$demo_block_template_files = is_array( $demo_block_template_files ) ? $demo_block_template_files : array();
+		$block_template_files      = array_merge( $block_template_files, $demo_block_template_files );
+	}
+
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 	return $block_template_files;
 }
 

@@ -20,6 +20,7 @@ class WP_Block_Supports {
 	private $block_supports = array();
 
 	/**
+<<<<<<< HEAD
 	 * Tracks the current block to be rendered.
 	 *
 	 * @var array
@@ -27,6 +28,8 @@ class WP_Block_Supports {
 	public static $block_to_render = null;
 
 	/**
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 	 * Container for the main instance of the class.
 	 *
 	 * @var WP_Block_Supports|null
@@ -74,12 +77,22 @@ class WP_Block_Supports {
 	 * Generates an array of HTML attributes, such as classes, by applying to
 	 * the given block all of the features that the block supports.
 	 *
+<<<<<<< HEAD
 	 * @return array               Array of HTML attributes.
 	 */
 	public function apply_block_supports() {
 		$block_attributes = self::$block_to_render['attrs'];
 		$block_type       = WP_Block_Type_Registry::get_instance()->get_registered(
 			self::$block_to_render['blockName']
+=======
+	 * @param  array $parsed_block Block as parsed from content.
+	 * @return array               Array of HTML attributes.
+	 */
+	public function apply_block_supports( $parsed_block ) {
+		$block_attributes = $parsed_block['attrs'];
+		$block_type       = WP_Block_Type_Registry::get_instance()->get_registered(
+			$parsed_block['blockName']
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 		);
 
 		// If no render_callback, assume styles have been previously handled.
@@ -150,7 +163,12 @@ class WP_Block_Supports {
  * @return string String of HTML classes.
  */
 function get_block_wrapper_attributes( $extra_attributes = array() ) {
+<<<<<<< HEAD
 	$new_attributes = WP_Block_Supports::get_instance()->apply_block_supports();
+=======
+	global $current_parsed_block;
+	$new_attributes = WP_Block_Supports::get_instance()->apply_block_supports( $current_parsed_block );
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
 	if ( empty( $new_attributes ) && empty( $extra_attributes ) ) {
 		return '';
@@ -196,6 +214,7 @@ function get_block_wrapper_attributes( $extra_attributes = array() ) {
 	return implode( ' ', $normalized_attributes );
 }
 
+<<<<<<< HEAD
 /**
  * Callback hooked to the register_block_type_args filter.
  *
@@ -233,3 +252,6 @@ function wp_block_supports_track_block_to_render( $args ) {
 
 add_action( 'init', array( 'WP_Block_Supports', 'init' ), 22 );
 add_filter( 'register_block_type_args', 'wp_block_supports_track_block_to_render' );
+=======
+add_action( 'init', array( 'WP_Block_Supports', 'init' ), 22 );
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3

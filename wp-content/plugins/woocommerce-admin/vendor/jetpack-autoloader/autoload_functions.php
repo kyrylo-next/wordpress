@@ -5,7 +5,11 @@
  * @package automattic/jetpack-autoloader
  */
 
+<<<<<<< HEAD:wp-content/plugins/woocommerce-admin/vendor/jetpack-autoloader/autoload_functions.php
 namespace Automattic\Jetpack\Autoloader\jpb1bb7dbeb65ae71f72a75c90f6c92610;
+=======
+namespace Automattic\Jetpack\Autoloader\jp37f45dbf2d30f6954685a8b3b4f0ce8f;
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3:wp-content/plugins/woocommerce-admin/vendor/jetpack-autoloader/autoload_functions.php
 
  // phpcs:ignore
 

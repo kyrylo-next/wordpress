@@ -54,6 +54,7 @@ class WP_Widget_Block extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
+<<<<<<< HEAD
 		$content = do_blocks( $instance['content'] );
 
 		// Handle embeds for block widgets.
@@ -65,6 +66,9 @@ class WP_Widget_Block extends WP_Widget {
 		global $wp_embed;
 		echo $wp_embed->autoembed( $content );
 
+=======
+		echo do_blocks( $instance['content'] );
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 		echo $args['after_widget'];
 	}
 

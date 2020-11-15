@@ -65,15 +65,24 @@ class Enhanced_Ecommerce_Google_Analytics_Admin {
         }
         $server_name = $_SERVER['SERVER_NAME'];
         $domain = $protocol.$server_name;
+<<<<<<< HEAD
         $woo_country = $this->woo_country();
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
         $country = (!empty($woo_country)) ? $woo_country[0] : 'US';
         $currency_code = $this->get_currency_code();
         $timezone = get_option('timezone_string');
         //sigin with google
         $this->returnUrl = "estorenew.tatvic.com/tat_ee/ads-analytics-form.php?domain=".$domain."&country=".$country."&user_currency=".$currency_code."&timezone".$timezone;
+<<<<<<< HEAD
         $this->accessToken = isset($_GET['access_token']) ? $_GET['access_token'] : '';
         $this->refreshToken = isset($_GET['refresh_token']) ? $_GET['refresh_token'] : '';
         $this->email = isset($_GET['email']) ? $_GET['email'] : '';
+=======
+        $this->accessToken = $_GET['access_token'];
+        $this->refreshToken = $_GET['refresh_token'];
+        $this->email = $_GET['email'];
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 
         if(isset($_GET['property_id']) && isset($_GET['ads_id'])) {
             $data = unserialize(get_option('ee_options'));
@@ -115,7 +124,11 @@ class Enhanced_Ecommerce_Google_Analytics_Admin {
     private function get_currency_code(){
         $woo_country = $this->woo_country();
         $country = (!empty($woo_country)) ? $woo_country[0] : 'US';
+<<<<<<< HEAD
         $getCurrency = file_get_contents(ENHANCAD_PLUGIN_DIR . 'includes/json/currency.json');
+=======
+        $getCurrency = file_get_contents(ENHANCAD_PLUGIN_DIR . '/includes/json/currency.json');
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
         $contData = json_decode($getCurrency);
         return $contData->{$country};
     }

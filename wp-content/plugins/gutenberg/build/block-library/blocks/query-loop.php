@@ -30,6 +30,7 @@ function gutenberg_render_block_core_query_loop( $attributes, $content, $block )
 		if ( isset( $block->context['query']['postType'] ) ) {
 			$query['post_type'] = $block->context['query']['postType'];
 		}
+<<<<<<< HEAD
 		if ( isset( $block->context['query']['sticky'] ) && ! empty( $block->context['query']['sticky'] ) ) {
 			$sticky = get_option( 'sticky_posts' );
 			if ( 'only' === $block->context['query']['sticky'] ) {
@@ -40,6 +41,10 @@ function gutenberg_render_block_core_query_loop( $attributes, $content, $block )
 		}
 		if ( isset( $block->context['query']['exclude'] ) ) {
 			$query['post__not_in'] = array_merge( $query['post__not_in'], $block->context['query']['exclude'] );
+=======
+		if ( isset( $block->context['query']['exclude'] ) ) {
+			$query['post__not_in'] = $block->context['query']['exclude'];
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 		}
 		if ( isset( $block->context['query']['perPage'] ) ) {
 			$query['offset'] = ( $block->context['query']['perPage'] * ( $page - 1 ) ) + $block->context['query']['offset'];

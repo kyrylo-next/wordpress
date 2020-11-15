@@ -246,7 +246,11 @@ function dokan_save_quick_edit_vendor_data( $product ) {
 
     $get_data = wp_unslash( $_REQUEST );
 
+<<<<<<< HEAD
     if ( ! isset( $get_data['woocommerce_quick_edit_nonce'] ) || ! wp_verify_nonce( $get_data['woocommerce_quick_edit_nonce'], 'woocommerce_quick_edit_nonce' ) ) {
+=======
+    if ( ! empty( $get_data['woocommerce_quick_edit_nonce'] ) && ! wp_verify_nonce( $get_data['woocommerce_quick_edit_nonce'], 'inline-save' ) ) {
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
         return;
     }
 

@@ -2,10 +2,17 @@
 # This file is distributed under the same license as the WooCommerce Admin package.
 msgid ""
 msgstr ""
+<<<<<<< HEAD
 "Project-Id-Version: WooCommerce Admin 1.6.3\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/woocommerce-admin\n"
 "POT-Creation-Date: 2020-10-26 20:20:28+00:00\n"
+=======
+"Project-Id-Version: WooCommerce Admin 1.6.2\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/woocommerce-admin\n"
+"POT-Creation-Date: 2020-10-16 19:20:19+00:00\n"
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2769,7 +2776,11 @@ msgstr ""
 #: src/Notes/WC_Admin_Notes_Real_Time_Order_Alerts.php:50
 #: src/Notes/WC_Admin_Notes_Selling_Online_Courses.php:74
 #: src/Notes/WC_Admin_Notes_Start_Dropshipping_Business.php:73
+<<<<<<< HEAD
 #: src/Notes/WC_Admin_Notes_WooCommerce_Payments.php:116
+=======
+#: src/Notes/WC_Admin_Notes_WooCommerce_Payments.php:106
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: client/header/activity-panel/panels/orders.js:80
 #: client/header/activity-panel/panels/reviews.js:214
 #: client/profile-wizard/steps/product-types/label.js:74
@@ -2892,7 +2903,10 @@ msgid ""
 msgstr ""
 
 #: src/Notes/WC_Admin_Notes_Google_Ads_And_Marketing.php:73
+<<<<<<< HEAD
 #: src/Notes/WC_Admin_Notes_WooCommerce_Payments.php:117
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "Get started"
 msgstr ""
 
@@ -3431,7 +3445,11 @@ msgid "There was an error getting your stats. Please try again."
 msgstr ""
 
 #: client/analytics/components/report-error/index.js:24
+<<<<<<< HEAD
 #: client/header/activity-panel/panels/inbox/index.js:88
+=======
+#: client/header/activity-panel/panels/inbox/index.js:96
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: client/header/activity-panel/panels/orders.js:277
 #: client/header/activity-panel/panels/reviews.js:262
 #: client/header/activity-panel/panels/stock/index.js:59
@@ -4686,7 +4704,11 @@ msgid "Display Stats:"
 msgstr ""
 
 #: client/header/activity-panel/index.js:153
+<<<<<<< HEAD
 #: client/header/activity-panel/panels/inbox/index.js:120
+=======
+#: client/header/activity-panel/panels/inbox/index.js:128
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "Inbox"
 msgstr ""
 
@@ -4875,7 +4897,11 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+<<<<<<< HEAD
 #: client/header/activity-panel/panels/inbox/index.js:121
+=======
+#: client/header/activity-panel/panels/inbox/index.js:129
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "Insights and growth tips for your business"
 msgstr ""
 
@@ -4890,7 +4916,11 @@ msgid ""
 "recommendations and more!"
 msgstr ""
 
+<<<<<<< HEAD
 #: client/header/activity-panel/panels/inbox/index.js:84
+=======
+#: client/header/activity-panel/panels/inbox/index.js:92
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 msgid "There was an error getting your inbox. Please try again."
 msgstr ""
 
@@ -5603,6 +5633,7 @@ msgid ""
 "Billing is annual. All purchases are covered by our 30 day money back "
 "guarantee and include access to support and updates. Extensions will be "
 "added to a cart for you to purchase later."
+<<<<<<< HEAD
 msgstr ""
 
 #: client/profile-wizard/steps/product-types/index.js:49
@@ -5613,6 +5644,18 @@ msgstr ""
 msgid "There was a problem updating your product types."
 msgstr ""
 
+=======
+msgstr ""
+
+#: client/profile-wizard/steps/product-types/index.js:49
+msgid "Please select at least one product type"
+msgstr ""
+
+#: client/profile-wizard/steps/product-types/index.js:73
+msgid "There was a problem updating your product types."
+msgstr ""
+
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 #: client/profile-wizard/steps/product-types/label.js:25
 msgid ""
 "This product type requires a paid extension.\n"

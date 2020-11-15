@@ -2118,10 +2118,17 @@ div#ui-datepicker-div.yith-plugin-fw-datepicker-div {
 }
 
 .yith-plugin-ui span.description {
+<<<<<<< HEAD
     margin-top  : 10px;
     line-height : 20px;
     max-width   : 40%;
     min-width   : min(100%, 360px);
+=======
+    margin-top: 10px;
+    line-height: 20px;
+    max-width: 40%;
+    min-width: min(100%,360px);
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 }
 
 .yith-plugin-fw-option-with-description {
@@ -2303,6 +2310,7 @@ div#ui-datepicker-div.yith-plugin-fw-datepicker-div {
 
 
     .yith-plugin-ui .yith-add-box-row,
+<<<<<<< HEAD
     .yith-plugin-ui .yith-toggle-content .yith-toggle-content-row,
     .yith-plugin-ui .yith-add-box-row label {
         display : block;
@@ -2314,10 +2322,24 @@ div#ui-datepicker-div.yith-plugin-fw-datepicker-div {
 
     .yith-plugin-ui .yith-plugin-fw-option-with-description {
         width : 100%;
+=======
+    .yith-plugin-ui .yith-toggle-row-opened .yith-toggle-content .yith-toggle-content-row,
+    .yith-plugin-ui .yith-add-box-row label{
+        display:block;
+    }
+
+    .yith-plugin-ui .yith-toggle-row-opened .yith-toggle-content .yith-toggle-content-row > label{
+        display:block;
+    }
+
+    .yith-plugin-ui .yith-toggle-row-opened .yith-plugin-fw-option-with-description {
+        width: 100%;
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
     }
 
     .yith-plugin-ui .yith-add-box-row,
     .yith-plugin-ui .yith-add-box-row label {
+<<<<<<< HEAD
         display : block;
     }
 
@@ -2325,11 +2347,24 @@ div#ui-datepicker-div.yith-plugin-fw-datepicker-div {
     .yith-plugin-ui .yith-add-box-row .yith-plugin-fw-option-with-description {
         display     : block;
         padding-top : 20px;
+=======
+        display: block;
+    }
+
+    .yith-plugin-ui .yith-toggle-row-opened .yith-toggle-content .yith-plugin-fw-option-with-description,
+    .yith-plugin-ui .yith-add-box-row .yith-plugin-fw-option-with-description {
+        display: block;
+        padding-top: 20px;
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
     }
 
 
     .yith-plugin-ui .yith-add-box-row .yith-plugin-fw-option-with-description span.description {
+<<<<<<< HEAD
         max-width : 100%;
+=======
+        max-width: 100%;
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
     }
 }
 

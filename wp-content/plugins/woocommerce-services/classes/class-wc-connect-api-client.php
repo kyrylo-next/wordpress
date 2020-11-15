@@ -312,6 +312,7 @@ if ( ! class_exists( 'WC_Connect_API_Client' ) ) {
 		}
 
 		/**
+<<<<<<< HEAD
 		 * Get all carriers we support for registration. This end point
 		 * returns a list of "fields" that we use to register the carrier
 		 * account.
@@ -323,6 +324,8 @@ if ( ! class_exists( 'WC_Connect_API_Client' ) ) {
 		}
 
 		/**
+=======
+>>>>>>> 9fae9b5560b0475736c72e2887ae27ff567215d3
 		 * Tests the connection to the WooCommerce Shipping & Tax Server
 		 *
 		 * @return true|WP_Error
