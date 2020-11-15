@@ -7,6 +7,7 @@ SG_STORAGE_DROPBOX      = 2;
 SG_STORAGE_GOOGLE_DRIVE = 3;
 SG_STORAGE_AMAZON       = 4;
 SG_STORAGE_ONE_DRIVE    = 5;
+SG_STORAGE_BACKUP_GUARD = 6;
 
 jQuery(document).on('change', '.btn-file :file', function() {
 	var input = jQuery(this),
@@ -294,6 +295,9 @@ sgBackup.listStorage = function(importFrom) {
 			case SG_STORAGE_ONE_DRIVE:
 				cloudName = "OneDrive";
 				break;
+			case SG_STORAGE_BACKUP_GUARD:
+				cloudName = "BackupGuard";
+				break;
 			default:
 				cloudName = '';
 		}
@@ -307,8 +311,16 @@ sgBackup.listStorage = function(importFrom) {
 		}
 		else {
 			jQuery.each(response, function( key, value ) {
+
+				var backupId = 0;
+
+				if (typeof value.id != 'undefined') {
+					backupId = value.id;
+					value.path = value.name;
+				}
+
 				content += '<tr>';
-					content += '<td class="file-select-radio"><input type="radio" file-name="'+value.name+'" name="select-archive-to-download" size="'+value.size+'" storage="'+importFrom+'" value="'+value.path+'"></td>';
+					content += '<td class="file-select-radio"><input type="radio" file-name="'+value.name+'" name="select-archive-to-download" size="'+value.size+'" backup-id="'+value.id+'" storage="'+importFrom+'" value="'+value.path+'"></td>';
 					content += '<td>'+value.name+'</td>';
 					content += '<td>'+sgBackup.convertBytesToMegabytes(value.size)+'</td>';
 					content += '<td>'+value.date+'</td>';
@@ -339,7 +351,8 @@ sgBackup.initFileUpload = function(){
 			var name = target.attr('file-name');
 			var storage = target.attr('storage');
 			var size = target.attr('size');
-			sgBackup.downloadFromCloud(path, name, storage, size);
+			var backupId = target.attr('backup-id');
+			sgBackup.downloadFromCloud(path, name, storage, size, backupId);
 		}
 	});
 };
@@ -423,7 +436,7 @@ sgBackup.downloadFromCloud = function (path, name, storage, size) {
 		jQuery('#sg-modal .modal-header').prepend(sgAlert);
 		return false;
 	}
-
+	
 	var downloadFromCloudHandler = new sgRequestHandler('downloadFromCloud', {
 		path: path,
 		storage: storage,
@@ -617,6 +630,7 @@ sgBackup.initManualBackupTooltips = function(){
 	jQuery('[for=cloud-gdrive]').tooltip();
 	jQuery('[for=cloud-one-drive]').tooltip();
 	jQuery('[for=cloud-amazon]').tooltip();
+	jQuery('[for=cloud-backup-guard]').tooltip();
 
 	jQuery('a[data-toggle=tooltip]').tooltip();
 };
@@ -752,17 +766,23 @@ sgBackup.statusUpdate = function(tooltip, response, progressInPercents){
 	}
 	else if(response.type == '3'){
 		var cloudIcon = jQuery('.sg-status-'+response.type+response.subtype);
-		if(response.subtype == '1'){
+		if(response.subtype == SG_STORAGE_FTP){
 			tooltipText = 'Uploading to FTP - '+progressInPercents;
 		}
-		else if(response.subtype == '2'){
+		else if(response.subtype == SG_STORAGE_DROPBOX){
 			tooltipText = 'Uploading to Dropbox - '+progressInPercents;
 		}
-		else if(response.subtype == '3'){
+		else if(response.subtype == SG_STORAGE_GOOGLE_DRIVE){
 			tooltipText = 'Uploading to Google Drive - '+progressInPercents;
 		}
-		else if(response.subtype == '4') {
+		else if(response.subtype == SG_STORAGE_AMAZON) {
 			tooltipText = 'Uploading to Amazon S3 - '+progressInPercents;
+		}
+		else if(response.subtype == SG_STORAGE_ONE_DRIVE) {
+			tooltipText = 'Uploading to OneDrive - '+progressInPercents;
+		}
+		else if(response.subtype == SG_STORAGE_BACKUP_GUARD) {
+			tooltipText = 'Uploading to BackupGuard - '+progressInPercents;
 		}
 		cloudIcon.prevAll('[class*=sg-status]').addClass('active');
 	}

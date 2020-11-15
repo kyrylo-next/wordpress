@@ -105,10 +105,12 @@ This will provide us with an opportunity to make the experience so much better f
 			<span class="sg-backup-migrate sg-backup-buttons-content"></span>
 			<span class="sg-backup-buttons-text sg-backup-buttons-content"><?php _backupGuardT('Migrate')?></span>
 		</a>
+        <?php if (!(defined('SG_USER_MODE') && SG_USER_MODE)): ?>
 		<a href="javascript:void(0)" id="sg-import" class="btn btn-primary sg-margin-left-12 pull-left  sg-backup-action-buttons" data-toggle="modal" data-modal-name="import"  data-remote="modalImport">
 			<span class="sg-backup-import sg-backup-buttons-content"></span>
 			<span class="sg-backup-buttons-text sg-backup-buttons-content"><?php _backupGuardT('Import')?><span>
 		</a>
+        <?php endif; ?>
 		<?php if ($pluginCapabilities == BACKUP_GUARD_CAPABILITIES_FREE): ?>
 		<a href="<?php echo BACKUP_GUARD_WORDPRESS_SUPPORT_URL; ?>" target="_blank">
 			<button type="button" id="sg-report-problem-button" class="btn btn btn-primary sg-margin-left-12 pull-right sg-backup-action-buttons sg-button-red pull-right">

@@ -440,6 +440,9 @@ label.sg-user-info {
 	margin-right: 18px;
 }
 
+.sg-cloud-backup-guard {
+	background-image: url("../img/backup-cloud-icon.png");
+}
 .sg-cloud-dropbox {
 	background-image: url("../img/cloud-dropbox.png");
 }
@@ -473,6 +476,10 @@ label.sg-user-info {
 	height: 39px;
 	line-height: 1;
 	font-weight: normal;
+}
+
+.sg-cloud-label-with-info {
+	display: inline-block;
 }
 
 .sg-schedule-icon {

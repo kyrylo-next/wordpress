@@ -131,3 +131,26 @@ h5{
 	 content: "\2605";
 	 position: absolute;
   }
+.oauth-container{
+	display: inline-block;
+	width: 100%;
+	max-width: 100%;
+	padding: 5px;
+	border: 1px solid #bfbfbf;
+	height: 45px;
+	border-radius: 5px;
+	background-color: #fff;
+}
+.ee-oauth-container{
+	display: inline-block;
+	width: 50%;
+	max-width: 100%;
+	padding: 5px;
+	border: 1px solid #bfbfbf;
+	height: 45px;
+	border-radius: 5px;
+	background-color: #fff;
+}
+.left {
+	float: left;
+}

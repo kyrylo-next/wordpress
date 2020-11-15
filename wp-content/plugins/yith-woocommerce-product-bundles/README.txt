@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: product, bundle, bundles, product bundle, product bundles, bundle product, woocommerce, products, themes, yit, e-commerce, shop, yith, premium, yithemes
 Requires at least: 3.5.1
 Tested up to: 5.5
-Stable tag: 1.1.26
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,16 +33,26 @@ YITH WooCommerce Product Bundles will add a new product type called "Product Bun
 == Screenshots ==
 
 1. Admin view: Product bundle type for product
-2. Admin view: Bundled items
-3. Admin view: Quantity of bundled items
-4. Admin view: Search field to add a product
-5. Customer view: Product bundle
-6. Customer view: Product bundle in cart
-7. Customer view: Order details with a product bundle
-8. Admin view: Items of the purchased order
-9. Admin view: Product bundle in the order
+2. Admin view: Bundle items and options
+3. Admin view: Add products to the bundle
+4. Customer view: Product bundle
+5. Customer view: Product bundle in cart
+6. Admin view: Product bundle in the order
 
 == Changelog ==
+
+= 1.2.1 - Released on 06 Nov 2020 =
+
+* New: support for WooCommerce 4.7
+* Update: plugin framework
+* Update: language files
+
+= 1.2.0 - Released on 06 Oct 2020 =
+
+* New: support for WooCommerce 4.6
+* Update: plugin framework
+* Update: language files
+* Tweak: improved style and usability
 
 = 1.1.26 - Released on 17 Sep 2020 =
 

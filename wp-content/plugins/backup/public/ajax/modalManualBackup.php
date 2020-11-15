@@ -8,6 +8,7 @@
 	$ftp = SGConfig::get('SG_STORAGE_FTP_CONNECTED');
 	$amazon = SGConfig::get('SG_AMAZON_KEY');
 	$oneDrive = SGConfig::get('SG_ONE_DRIVE_REFRESH_TOKEN');
+	$backupGuard = SGConfig::get('SG_BACKUPGUARD_UPLOAD_ACCESS_TOKEN');
 
 	$backupType = (int)@$_GET['backupType'];
 ?>
@@ -69,6 +70,14 @@
 								</label>
 								<!--Storages-->
 								<div class="col-md-12 sg-checkbox sg-custom-backup-cloud">
+									<?php if(SGBoot::isFeatureAvailable('BACKUP_GUARD') && SG_SHOW_BACKUPGUARD_CLOUD): ?>
+										<div class="checkbox">
+											<label for="cloud-backup-guard" <?php echo empty($backupGuard)?'data-toggle="tooltip" data-placement="right" title="'._backupGuardT('BackupGuard is not active.',true).'"':''?>>
+												<input type="checkbox" name="backupStorages[]" id="cloud-backup-guard" value="<?php echo SG_STORAGE_BACKUP_GUARD ?>" <?php echo empty($backupGuard)?'disabled="disabled"':''?>>
+                                                <span class="sg-checkbox-label-text"><?php echo 'BackupGuard' ?></span>
+											</label>
+										</div>
+									<?php endif; ?>
 									<?php if(SGBoot::isFeatureAvailable('FTP')): ?>
 										<div class="checkbox">
 											<label for="cloud-ftp" <?php echo empty($ftp)?'data-toggle="tooltip" data-placement="right" title="'._backupGuardT('FTP is not active.',true).'"':''?>>

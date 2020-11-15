@@ -141,6 +141,7 @@ function backupGuardFilterStatusesByActionType($currentBackup, $currentOptions)
 		if ($currentOptions['gdrive']) $filteredStatuses[] = $currentOptions['gdrive'];
 		if ($currentOptions['amazon']) $filteredStatuses[] = $currentOptions['amazon'];
 		if ($currentOptions['oneDrive']) $filteredStatuses[] = $currentOptions['oneDrive'];
+		if ($currentOptions['backupGuard']) $filteredStatuses[] = $currentOptions['backupGuard'];
 	}
 	return $filteredStatuses;
 }
@@ -157,6 +158,7 @@ function backupGuardActiveOptionToType($activeOption)
 	$activeOptions['gdrive'] = 0;
 	$activeOptions['amazon'] = 0;
 	$activeOptions['oneDrive'] = 0;
+	$activeOptions['backupGuard'] = 0;
 	foreach ($storages as $key => $storage) {
 		switch ($storage) {
 			case SG_STORAGE_FTP:
@@ -173,6 +175,9 @@ function backupGuardActiveOptionToType($activeOption)
 				break;
 			case SG_STORAGE_ONE_DRIVE:
 				$activeOptions['oneDrive'] = SG_ACTION_TYPE_UPLOAD.SG_STORAGE_ONE_DRIVE;
+				break;
+			case SG_STORAGE_BACKUP_GUARD:
+				$activeOptions['backupGuard'] = SG_ACTION_TYPE_UPLOAD.SG_STORAGE_BACKUP_GUARD;
 				break;
 		}
 	}

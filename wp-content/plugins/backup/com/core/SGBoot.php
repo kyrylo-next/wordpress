@@ -266,7 +266,7 @@ class SGBoot
 
 	public static function isFeatureAvailable($feature)
 	{
-		return (SGConfig::get('SG_FEATURE_'.strtoupper($feature))===1?true:false);
+		return ((int)SGConfig::get('SG_FEATURE_'.strtoupper($feature))===1?true:false);
 	}
 
 	private static function prepare()

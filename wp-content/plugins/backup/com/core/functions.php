@@ -1,5 +1,20 @@
 <?php
 
+function backupGuardGetSiteUrl()
+{
+	if (SG_ENV_ADAPTER == SG_ENV_WORDPRESS) {	
+		return get_site_url();
+	}
+	else {
+		return sprintf(
+			"%s://%s%s",
+			isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+			$_SERVER['SERVER_NAME'],
+			$_SERVER['REQUEST_URI']
+		);
+	}
+}
+
 function backupGuardGetCapabilities()
 {
 	switch (SG_PRODUCT_IDENTIFIER) {
@@ -20,7 +35,7 @@ function backupGuardGetCapabilities()
 function convertToReadableSize($size)
 {
 	if (!$size) {
-		return '';
+		return '0';
 	}
 
 	$base = log($size) / log(1000);

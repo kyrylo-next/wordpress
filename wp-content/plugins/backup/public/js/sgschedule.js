@@ -210,4 +210,5 @@ sgBackup.initManualBackupTooltips = function(){
     jQuery('[for=cloud-gdrive]').tooltip();
     jQuery('[for=cloud-one-drive]').tooltip();
     jQuery('[for=cloud-amazon]').tooltip();
+    jQuery('[for=cloud-backup-guard]').tooltip();
 }

@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: WooCommerce Services
+ * Plugin Name: WooCommerce Shipping & Tax
  * Plugin URI: https://woocommerce.com/
  * Description: Hosted services for WooCommerce: automated tax calculation, shipping label printing, and smoother payment setup.
  * Author: Automattic
  * Author URI: https://woocommerce.com/
  * Text Domain: woocommerce-services
  * Domain Path: /i18n/languages/
- * Version: 1.24.3
+ * Version: 1.25.2
  * WC requires at least: 3.0.0
  * WC tested up to: 4.2
  *
@@ -26,7 +26,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
- * WooCommerce Services incorporates code from WooCommerce Sales Tax Plugin by TaxJar, Copyright 2014-2017 TaxJar.
+ * WooCommerce Shipping & Tax incorporates code from WooCommerce Sales Tax Plugin by TaxJar, Copyright 2014-2017 TaxJar.
  * WooCommerce Sales Tax Plugin by TaxJar is distributed under the terms of the GNU GPL, Version 2 (or later).
  */
 
@@ -48,11 +48,11 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 	define( 'WOOCOMMERCE_CONNECT_MAX_JSON_DECODE_DEPTH', 32 );
 
 	if ( ! defined( 'WOOCOMMERCE_CONNECT_SERVER_API_VERSION ' ) ) {
-		define( 'WOOCOMMERCE_CONNECT_SERVER_API_VERSION', '3');
+		define( 'WOOCOMMERCE_CONNECT_SERVER_API_VERSION', '4');
 	}
 
 	// Check for CI environment variable to trigger test mode.
-	if ( false !== getenv( 'WOOCOMMERCE_SERVICES_CI_TEST_MODE', true ) ) {
+	if ( false !== getenv( 'WOOCOMMERCE_SERVICES_CI_TEST_MODE' ) ) {
 		if ( ! defined( 'WOOCOMMERCE_SERVICES_LOCAL_TEST_MODE' ) ) {
 			define( 'WOOCOMMERCE_SERVICES_LOCAL_TEST_MODE', true );
 		}
@@ -147,6 +147,14 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 		 * @var WC_REST_Connect_Address_Normalization_Controller
 		 */
 		protected $rest_address_normalization_controller;
+
+		/**
+		 *
+		 * WC_REST_Connect_Shipping_Carrier_Types_Controller
+		 *
+		 * @var WC_REST_Connect_Shipping_Carrier_Types_Controller
+		 */
+		protected $rest_carrier_types_controller;
 
 		/**
 		 * @var WC_Connect_Service_Schemas_Validator
@@ -416,6 +424,14 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			$this->rest_address_normalization_controller = $rest_address_normalization_controller;
 		}
 
+		public function set_carrier_types_controller( WC_REST_Connect_Shipping_Carrier_Types_Controller $rest_carrier_types_controller ) {
+			$this->rest_carrier_types_controller = $rest_carrier_types_controller;
+		}
+
+		public function get_carrier_types_controller() {
+			return $this->rest_carrier_types_controller;
+		}
+
 		public function get_service_schemas_validator() {
 			return $this->service_schemas_validator;
 		}
@@ -479,7 +495,7 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			if ( ! class_exists( 'WooCommerce' ) ) {
 				add_action( 'admin_notices', function() {
 					/* translators: %s WC download URL link. */
-					echo '<div class="error"><p><strong>' . sprintf( esc_html__( 'WooCommerce Services requires the WooCommerce plugin to be installed and active. You can download %s here.', 'woocommerce-services' ), '<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a>' ) . '</strong></p></div>';
+					echo '<div class="error"><p><strong>' . sprintf( esc_html__( 'WooCommerce Shipping & Tax requires the WooCommerce plugin to be installed and active. You can download %s here.', 'woocommerce-services' ), '<a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a>' ) . '</strong></p></div>';
 				} );
 				return;
 			}
@@ -881,6 +897,11 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			$this->set_rest_carrier_delete_controller( $rest_carrier_delete_controller );
 			$rest_carrier_delete_controller->register_routes();
 
+			require_once( plugin_basename( 'classes/class-wc-rest-connect-shipping-carrier-types-controller.php' ) );
+			$rest_carrier_types_controller = new WC_REST_Connect_Shipping_Carrier_Types_Controller( $this->api_client, $settings_store, $logger );
+			$this->set_carrier_types_controller( $rest_carrier_types_controller );
+			$rest_carrier_types_controller->register_routes();
+
 			if ( $this->stripe->is_stripe_plugin_enabled() ) {
 				require_once( plugin_basename( 'classes/class-wc-rest-connect-stripe-oauth-init-controller.php' ) );
 				$rest_stripe_settings_controller = new WC_REST_Connect_Stripe_Oauth_Init_Controller( $this->stripe, $this->api_client, $settings_store, $logger );
@@ -1040,7 +1061,8 @@ if ( ! class_exists( 'WC_Connect_Loader' ) ) {
 			// Generate a table row for each label
 			foreach ( $labels as $label ) {
 				$carrier = $label['carrier_id'];
-				$carrier_label = strtoupper( $carrier );
+				$carrier_service = $this->get_service_schemas_store()->get_service_schema_by_id( $carrier );
+				$carrier_label = ( ! $carrier_service || empty( $carrier_service->carrier_name ) ) ? strtoupper( $carrier ) : $carrier_service->carrier_name;
 				$tracking = $label['tracking'];
 				$error = array_key_exists( 'error', $label );
 				$refunded = array_key_exists( 'refund', $label );

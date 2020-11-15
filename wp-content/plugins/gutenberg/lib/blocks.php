@@ -45,29 +45,24 @@ function gutenberg_reregister_core_block_types() {
 				'text-columns',
 				'verse',
 				'video',
-				'widget-area',
+				'embed',
 			),
 			'block_names'   => array_merge(
 				array(
-					'archives.php'        => 'core/archives',
-					'block.php'           => 'core/block',
-					'calendar.php'        => 'core/calendar',
-					'categories.php'      => 'core/categories',
-					'cover.php'           => 'core/cover',
-					'latest-comments.php' => 'core/latest-comments',
-					'latest-posts.php'    => 'core/latest-posts',
-					'navigation.php'      => 'core/navigation',
-					'navigation-link.php' => 'core/navigation-link',
-					'rss.php'             => 'core/rss',
-					'search.php'          => 'core/search',
-					'shortcode.php'       => 'core/shortcode',
-					'social-link.php'     => 'core/social-link',
-					'tag-cloud.php'       => 'core/tag-cloud',
-				),
-				! gutenberg_is_experiment_enabled( 'gutenberg-full-site-editing' )
-				? array()
-				:
-				array(
+					'archives.php'                => 'core/archives',
+					'block.php'                   => 'core/block',
+					'calendar.php'                => 'core/calendar',
+					'categories.php'              => 'core/categories',
+					'cover.php'                   => 'core/cover',
+					'latest-comments.php'         => 'core/latest-comments',
+					'latest-posts.php'            => 'core/latest-posts',
+					'navigation.php'              => 'core/navigation',
+					'navigation-link.php'         => 'core/navigation-link',
+					'rss.php'                     => 'core/rss',
+					'search.php'                  => 'core/search',
+					'shortcode.php'               => 'core/shortcode',
+					'social-link.php'             => 'core/social-link',
+					'tag-cloud.php'               => 'core/tag-cloud',
 					'post-author.php'             => 'core/post-author',
 					'post-comment.php'            => 'core/post-comment',
 					'post-comment-author.php'     => 'core/post-comment-author',
@@ -96,9 +91,11 @@ function gutenberg_reregister_core_block_types() {
 		dirname( __FILE__ ) . '/../build/edit-widgets/blocks/'  => array(
 			'block_folders' => array(
 				'legacy-widget',
+				'widget-area',
 			),
 			'block_names'   => array(
 				'legacy-widget.php' => 'core/legacy-widget',
+				'widget-area.php'   => 'core/widget-area',
 			),
 		),
 	);
